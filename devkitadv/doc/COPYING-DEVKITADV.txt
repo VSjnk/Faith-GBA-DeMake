@@ -1,0 +1,31 @@
+DevKit Advance is a collection of software from many different sources under
+many different licenses.  For a summary of the licenses, consult
+$(DEVKITADV)/doc/Licenses.txt.
+
+The following license applies to any content of DevKit Advance that has
+originated from inside the project and the source file does not contain
+a different license.
+
+
+The DevKit Advance License:
+
+Copyright 2003, Jason Wilkins.  This source code is free for any use except
+that this copyright notice and the following disclaimers remain intact when
+the source is distributed.  Object code and binary distributions may be made
+as if the code were in the public domain.
+
+THIS CODE WAS NOT MADE IN ASSOCIATION WITH NINTENDO AND DOES NOT MAKE USE OF
+ANY INTELLECTUAL PROPERTY CLAIMED BY NINTENDO.
+
+GAMEBOY ADVANCE IS A TRADEMARK OF NINTENDO.
+
+THIS CODE HAS BEEN PROVIDED "AS-IS" WITHOUT A WARRANTY OF ANY KIND, EITHER
+EXPRESSED OR IMPLIED, INCLUDING, BUT NOT LIMITED TO IMPLIED WARRANTIES OF
+MERCHANTABILITY OR FITNESS FOR A PARTICULAR USE.  THE ENTIRE RISK AS TO THE
+QUALITY OR PERFORMANCE OF THE CODE IS WITH YOU.
+
+IN NO EVENT, UNLESS AGREED TO IN WRITING, WILL ANY COPYRIGHT HOLDER, OR ANY
+OTHER PARTY, BE HELD LIABLE FOR ANY DAMAGES RESULTING FROM THE USE OR
+INABILITY TO USE THIS CODE.
+
+

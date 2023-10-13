@@ -1,0 +1,7 @@
+void abort (void)
+{
+  for(;;);
+}
+
+
+

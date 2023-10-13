@@ -1,0 +1,36 @@
+#ifndef ISR_SECTION
+#define ISR_SECTION .iwram.text
+#endif
+
+#ifndef FAST_INTERRUPTS
+#define FAST_INTERRUPTS 0
+#endif
+
+#ifndef INTERRUPT_TABLE
+#define INTERRUPT_TABLE 0
+#endif
+
+#ifndef USER_INTERRUPT_HANDLER_NAME
+#define USER_INTERRUPT_HANDLER_NAME InterruptProcess
+#endif
+
+#ifndef WEAK_USER_INTERRUPT_HANDLER
+#define WEAK_USER_INTERRUPT_HANDLER 1
+#endif
+
+#ifndef MULTIPLE_INTERRUPTS
+#define MULTIPLE_INTERRUPTS 0
+#endif
+
+#ifndef HANDLE_CART_INTERRUPT
+#define HANDLE_CART_INTERRUPT 1
+#endif
+
+#ifndef INTERRUPT_TABLE_NAME
+#define INTERRUPT_TABLE_NAME IntrTable
+#endif
+
+#ifndef SWITCH_TO_USER_STACK
+#define SWITCH_TO_USER_STACK 0
+#endif
+

@@ -1,0 +1,36 @@
+#!/bin/sh
+
+set GCC_LIBDIR=$DEVKITADV/lib/gcc-lib/arm-agb-elf/3.2.2
+set TOOL_LIBDIR=$DEVKITADV/arm-agb-elf/lib
+
+set CRTBEGIN=$GCC_LIBDIR/crtbegin.o
+set CRTEND=$GCC_LIBDIR/crtend.o
+set CRT0=$TOOL_LIBDIR/crt0.o
+
+set CRTBEGIN_THUMB=$GCC_LIBDIR/thumb/crtbegin.o
+set CRTEND_THUMB=$GCC_LIBDIR/thumb/crtend.o
+set CRT0_THUMB=$TOOL_LIBDIR/thumb/crt0.o
+
+set CRTBEGIN_INTERWORK=$GCC_LIBDIR/interwork/crtbegin.o
+set CRTEND_INTERWORK=$GCC_LIBDIR/interwork/crtend.o
+set CRT0_INTERWORK=$TOOL_LIBDIR/interwork/crt0.o
+
+set CRTBEGIN_THUMB_INTERWORK=$GCC_LIBDIR/thumb/interwork/crtbegin.o
+set CRTEND_THUMB_INTERWORK=$GCC_LIBDIR/thumb/interwork/crtend.o
+set CRT0_THUMB_INTERWORK=$TOOL_LIBDIR/thumb/interwork/crt0.o
+
+export CRTBEGIN
+export CRTEND
+export cRT0
+
+export CRTBEGIN_THUMB
+export CRTEND_THUMB
+export cRT0_THUMB
+
+export CRTBEGIN_INTERWORK
+export CRTEND_INTERWORK
+export cRT0_INTERWORK
+
+export CRTBEGIN_INTERWORK_THUMB
+export CRTEND_INTERWORK_THUMB
+export cRT0_INTERWORK_THUMB

@@ -1,0 +1,22 @@
+#!/bin/sh
+# by Jason Wilkins (fenix AT io DOT com)
+# I place this in the public domain.
+
+if [ $# -ne 3 ]; then echo "usage: $0 section infile outfile"; exit 1; fi
+
+(
+cat << EOF
+SECTIONS
+  {
+	"$1" : { *(.data) }
+	. = ALIGN(4);
+  }
+EOF
+) >> .tmp.bin2o.ls
+
+arm-agb-elf-objcopy -I binary -O elf32-little -B arm "$2" .tmp.bin2o.o
+
+arm-agb-elf-ld -T .tmp.bin2o.ls .tmp.bin2o.o -o "$3"
+
+rm -f .tmp.bin2o.ls
+rm -f .tmp.bin2o.o
