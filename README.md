@@ -7,7 +7,6 @@
 
 <h2>Why did I make this?</h2>
 <p>This is my Career 11 capstone project, where I (a spagetti code programer) have decided to re-create FAITH: Chapter 1 for the GameBoy Advanced!</p>
-<br></br>
 
 <h3>Am I allowed to do this?</h3>
 <p>Yes! I have been given permission from airdolf himself to create this game! I asked for permission ahead of time from him before I started making this game because I don't want to go to jail for a law I didn't know existed preventing me from doing this.</p>
