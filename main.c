@@ -10,8 +10,8 @@
 #define  GBA_SW 160                                        //actual gba screen width
 #define  SW     120                                        //game screen width
 #define  SH      80 
-#define  posX     0                                        //game screen width
-#define  posY     0                                        //game screen height
+extern int posX 0;                                        //Game world X;
+extern int posY 0;                                        //Game world Y;
 #define RGB(r,g,b) ((r)+((g)<<5)+((b)<<10))                //15 bit, 0-31, 5bit=r, 5bit=g, 5bit=b 
 //---Texture Stuff---
 #include "textures/title.c"
