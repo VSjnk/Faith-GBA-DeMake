@@ -5,7 +5,10 @@
 
 
 int main() {
-    // Now you can use myVar here
-    std::cout << posX << std::endl;
+    if(posX == 0)
+    {
+        
+    }
+    
     return 0;
 }
