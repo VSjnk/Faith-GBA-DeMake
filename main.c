@@ -43,7 +43,7 @@ typedef struct                                             //player
  int posX, posY;
  int frame;
  const u16* map;
- 
+ int rx,ry;
 }Player; Player P;
 
 void clearBackground(int r, int g, int b)
