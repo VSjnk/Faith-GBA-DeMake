@@ -1,7 +1,0 @@
-void abort (void)
-{
-  for(;;);
-}
-
-
-
