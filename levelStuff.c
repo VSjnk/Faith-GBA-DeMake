@@ -4,12 +4,12 @@
 
 #include <math.h>
 
+//#include "levelData/OutsideBeta.c"
 
 int main() {
-    if(posX == 1 && pos Y == 1)
-    {
-        clearBackground(0, 0, 10);
-    }
+	while(1){
+
+	};
     
     return 0;
 }

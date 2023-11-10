@@ -1,0 +1,1174 @@
+<html>
+<head>
+<title>BoyScout Manual</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+</head>
+
+<body bgcolor="#D5F3FF" text="#000000" link="#0B5477" vlink="#397CAE" alink="#0B76B7">
+<div align="left"> 
+  <p><font face="Arial, Helvetica, sans-serif" size="5"><b>BoyScout Manual</b></font><font face="Arial, Helvetica, sans-serif"><br>
+    <font size="3">Music tracking software for the GameBoy Advance</font></font><br>
+    <font face="Arial, Helvetica, sans-serif" size="2">By: Christer Andersson 
+    &copy; 2001-2005<br>
+    <br>
+    <br>
+    <b><font size="3">Table of Contents<br>
+    </font></b></font></p>
+  <table width="300" border="0">
+    <tr> 
+      <td> 
+        <ul>
+          <li><b><font face="Arial, Helvetica, sans-serif" size="2"><a href="#Terms">Terms 
+            of Usage</a></font></b></li>
+          <li><font face="Arial, Helvetica, sans-serif" size="2"><b><a href="#Newest">Newest 
+            version</a></b></font></li>
+          <li><b><font face="Arial, Helvetica, sans-serif" size="2"><a href="#Managing">Managing 
+            Songs</a></font></b></li>
+          <li><b><font face="Arial, Helvetica, sans-serif" size="2"><a href="#Patterns">Patterns</a></font></b></li>
+          <li><b><font face="Arial, Helvetica, sans-serif" size="2"><a href="#Presets">Presets</a></font></b></li>
+          <li><b><font face="Arial, Helvetica, sans-serif" size="2"><a href="#Channels">Channels</a></font></b></li>
+          <li><b><font face="Arial, Helvetica, sans-serif" size="2"><a href="#Sequencer">The 
+            Sequencer</a></font></b></li>
+          <li><b><font face="Arial, Helvetica, sans-serif" size="2"><a href="#Programming">Programming</a></font></b></li>
+          <li><b><font face="Arial, Helvetica, sans-serif" size="2"><a href="#Credits">Credits</a></font></b></li>
+        </ul>
+      </td>
+    </tr>
+  </table>
+  <table width="557" border="0">
+    <tr>
+      <td> 
+        <p><b><font face="Arial, Helvetica, sans-serif" size="3"><a name="Terms"></a>Terms 
+          of Usage<br>
+          </font></b><font face="Arial, Helvetica, sans-serif" size="3"><br>
+          <font size="2">The BoyScout distribution is provided as is, and may 
+          only be changed by me, Christer Andersson</font></font><font face="Arial, Helvetica, sans-serif" size="2">. 
+          It is okay to distribute this distribution, as long as it is done in 
+          a way to guarantee that it is available freely and free, unless another 
+          agreement is made with me.<br>
+          <br>
+          I do not provide any guarantee of functionality of any part of this 
+          distribution.<br>
+          <br>
+          This BoyScout distribution can be used freely in <strong>any</strong> commercial or non-commercial project.<br>
+          <br>
+          The usage of this distribution is totally on the responsiblity of the 
+          user. For any damages of whatever property, possibly linked to this 
+          distribution, I cannot be held responsible.<br>
+          <br>
+          By using this distribution, you, the user, agree to these terms.<br>
+          </font><b><font face="Arial, Helvetica, sans-serif" size="3"><br>
+          <a name="Newest"></a>Newest Version<br>
+          <br>
+          </font></b><font face="Arial, Helvetica, sans-serif" size="2">You should 
+          always be able to find the newest version and news at:<br>
+          <a href="http://www.pidelipom.com/boyscout/">http://www.pidelipom.com/boyscout/</a></font><b><font face="Arial, Helvetica, sans-serif" size="2"><br>
+          <br>
+          </font></b><font face="Arial, Helvetica, sans-serif" size="2">To find 
+          out which version of BoyScout you have, click the system menu (top left 
+          icon on application title bar) and</font><font size="2"><font face="Arial, Helvetica, sans-serif"> 
+          then &quot;About BoyScout...&quot;.</font><b><font face="Arial, Helvetica, sans-serif"><br>
+          <br>
+          </font></b><font face="Arial, Helvetica, sans-serif">For contact information 
+          see <a href="#Credits">Credits</a>.</font><b><font face="Arial, Helvetica, sans-serif"> 
+          </font></b></font><b><font face="Arial, Helvetica, sans-serif" size="3"><br>
+          </font></b><font face="Arial, Helvetica, sans-serif" size="2"><br>
+          </font><b><font face="Arial, Helvetica, sans-serif" size="3"><a name="Managing"></a>Managing 
+          Songs<br>
+          <br>
+          <font size="2">Creating a New Song<br>
+          <br>
+          </font></font></b><font face="Arial, Helvetica, sans-serif" size="2">On 
+          startup of BoyScout a default new song is created. These settings might 
+          not be convenient for you. To create a new song with different settings:<br>
+          </font> </p>
+        <table width="100%" border="0">
+          <tr> 
+            <td> 
+              <div align="center"><font face="Arial, Helvetica, sans-serif" size="2"><b><img src="gfx/newbutton.gif" width="23" height="24"></b></font></div>
+            </td>
+            <td><font face="Arial, Helvetica, sans-serif" size="2"><b><img src="gfx/newsong.gif" width="182" height="132"></b></font></td>
+          </tr>
+        </table>
+        <p><font face="Arial, Helvetica, sans-serif" size="2">Beat length (n/60): 
+          This is a measurement of how long each beat in pattern will take. A 
+          setting of 15 gives (15/60)s = 0.25 seconds per pattern beat. This setting 
+          will be viewable in the sequencer, where it also is postchangable (see 
+          <a href="#Sequencer">The Sequencer</a>).</font><b><font face="Arial, Helvetica, sans-serif" size="2"><br>
+          <br>
+          </font></b><font face="Arial, Helvetica, sans-serif" size="2">Sequencer 
+          Beats/Row: How many beats it should go on one sequencer row. If a small 
+          Beat length is chosen, it can be inconvenient later on to place patterns 
+          in the sequencer, as you have a hard time to get an overview of the 
+          song. But, also know that by setting this high, you loose pattern placement 
+          resolution. Chose this parameter visely, as it is not editable later 
+          on.</font><b><font face="Arial, Helvetica, sans-serif" size="2"> <br>
+          <br>
+          Opening a Song or Preset file<br>
+          </font></b></p>
+        <p><font face="Arial, Helvetica, sans-serif" size="2">There is one native 
+          format to be used together with BoyScout, the .BSF (BoyScout Song Format). 
+          This format stores just about all current data and states for you. To 
+          open a song:</font></p>
+        <table width="100%" border="0">
+          <tr>
+            <td><img src="gfx/openbutton.gif" width="23" height="24"></td>
+            <td>&nbsp;</td>
+          </tr>
+        </table>
+        <p><font face="Arial, Helvetica, sans-serif" size="2">This will bring 
+          up the standard Windows open dialog box, from which you can open a song.<br>
+          <br>
+          You can also open preset files .BPT (BoyScout Presets), which contains 
+          presets for the sound channels. Opening a preset file will append the 
+          channel presets to the current song.<br>
+          </font><b><font face="Arial, Helvetica, sans-serif" size="2"> <br>
+          Saving<br>
+          <br>
+          </font></b><font face="Arial, Helvetica, sans-serif" size="2">There 
+          are 5 file types that can be saved from the save menu:</font></p>
+        <table width="100%" bgcolor="#99CCFF">
+          <tr>
+            <td> 
+              <p><font face="Arial, Helvetica, sans-serif" size="2"><b>BSF:</b> 
+                The BoyScout Song Format. Which preserves all settings and is 
+                used for working with BoyScout.<br>
+                <b>BGF:</b> The BoyScout GameBoy Format. This is the format that 
+                is used for playback on the GBA device. It is a compressed and 
+                compact format. Only Begin to End of song is is saved.<br>
+                <b>BPT:</b> The BoyScout Preset Format. Saves all the presets 
+                in a song to a file. This allows to recycling of good presets 
+                in other songs, as the presets can be loaded into other songs.<br>
+                <b>WAV:</b> Renders the song from Begin to End to a wave file 
+                (channel muting is supported).<br>
+                <b>CPP:</b> Converts a file (any file) into a .cpp file containing 
+                a hexadecimal array of the file data.</font></p>
+              </td>
+          </tr>
+        </table>
+        <p><font face="Arial, Helvetica, sans-serif" size="2">In order to save 
+          a file:<br>
+          </font></p>
+        <table width="100%" border="0">
+          <tr>
+            <td><img src="gfx/savebutton.gif" width="23" height="24"></td>
+            <td>&nbsp;</td>
+          </tr>
+        </table>
+        <p><font face="Arial, Helvetica, sans-serif" size="3"><font size="2">This 
+          will bring up the standard Windows save dialog box, from which you can 
+          chose your save directory and file name.<br>
+          <br>
+          Note: It is the file extension </font> <font size="2">that decides into 
+          which format the song is saved.<br>
+          <br>
+          Note: The CPP file saving is a bit special. You first specify a file 
+          name to save to, then you select the file to create the array data from. 
+          It doesn't have to be a .BGF file, although this is the foremost intention 
+          of the feature.<br>
+          </font></font></p>
+        <p><b><font face="Arial, Helvetica, sans-serif" size="3"><a name="Patterns"></a>Patterns<br>
+          <br>
+          <font size="2">What?<br>
+          <br>
+          </font></font></b><font face="Arial, Helvetica, sans-serif" size="2">If 
+          you are unfamiliar with the pattern concept and wonder about their function, 
+          let me explain. A pattern is a sequence of notes (or triggers in the 
+          case of Sound 4), and can for example be a melody or a beat. A pattern 
+          is connected to the channel in which it is created, and allows editing 
+          of that channels parameters. There are many cons of implementing patterns 
+          in a tracker:<br>
+          </font></p>
+        <table width="100%" border="0">
+          <tr> 
+            <td> 
+              <ul>
+                <li><font face="Arial, Helvetica, sans-serif" size="2">You can 
+                  reuse a pattern as many times as you want just by placing it 
+                  in the sequencer.</font></li>
+                <li><font face="Arial, Helvetica, sans-serif" size="2">By moving 
+                  patterns in the sequencer you can easily remodel your song and 
+                  test new combinations.</font></li>
+                <li><font face="Arial, Helvetica, sans-serif" size="2">For a system 
+                  like the GameBoy, patterns will in just about all cases save 
+                  space, due to their reusability.</font></li>
+                <li><font face="Arial, Helvetica, sans-serif" size="2">You can 
+                  organize you songs in a convenients way by naming patterns.</font></li>
+                <li><font face="Arial, Helvetica, sans-serif" size="2">You will 
+                  see.</font></li>
+              </ul>
+            </td>
+          </tr>
+        </table>
+        <p><b><font face="Arial, Helvetica, sans-serif" size="2">Creating<br>
+          <br>
+          </font></b><font face="Arial, Helvetica, sans-serif" size="2">In order 
+          to create a pattern you must first be in a channel mode. There are four 
+          channels on the GameBoy and in BoyScout (see <a href="#Channels">Channels</a>). 
+          In order to view a channel you must have pressed one of these buttons:</font></p>
+        <table width="100%" border="0">
+          <tr>
+            <td><img src="gfx/snd1button.gif" width="23" height="24"><img src="gfx/snd2button.gif" width="23" height="24"><img src="gfx/snd3button.gif" width="23" height="24"><img src="gfx/snd4button.gif" width="23" height="24"></td>
+          </tr>
+        </table>
+        <p><font face="Arial, Helvetica, sans-serif" size="3"><font size="2">These 
+          are Sound 1, Sound 2, Sound 3 and Sound 4 respectively. To create a 
+          pattern, after you've entered a channel mode</font><font size="2">:</font></font></p>
+        <table width="100%" border="0">
+          <tr>
+            <td width="12%">
+              <div align="center"><img src="gfx/newpatternbutton.gif" width="23" height="24"></div>
+            </td>
+            <td width="88%"><img src="gfx/insertpattern.gif" width="152" height="114"></td>
+          </tr>
+        </table>
+        <p><font face="Arial, Helvetica, sans-serif" size="2">Name: By naming 
+          your pattern you can more easily find your patterns later on.<br>
+          <br>
+          Length: The number of beats in the pattern. The length of the pattern 
+          in seconds will depend on the song's Beat Length setting (see <a href="#Managing">Managing 
+          Songs</a> and <a href="#Sequencer">The Sequencer</a>).</font><b><font face="Arial, Helvetica, sans-serif" size="2"><br>
+          <br>
+          </font></b><font face="Arial, Helvetica, sans-serif" size="2">After 
+          you have created a pattern you will see a view something like this:<br>
+          </font></p>
+        <table width="100%" border="0">
+          <tr>
+            <td><img src="gfx/newpatternview.gif" width="190" height="130"></td>
+          </tr>
+        </table>
+        <p><font face="Arial, Helvetica, sans-serif" size="2">The dotted columns 
+          are parameters you can set in the pattern (see Editing later in this 
+          topic). A dotted parameter means that the parameter is unchanged.</font><b><font face="Arial, Helvetica, sans-serif" size="2"><br>
+          <br>
+          Selecting<br>
+          </font></b></p>
+        <p><font face="Arial, Helvetica, sans-serif" size="2">In order to view 
+          a specific pattern, just select the one you want from the combo box, 
+          shown in the above picture.<br>
+          </font><b><font face="Arial, Helvetica, sans-serif" size="2"><br>
+          Deleting</font></b></p>
+        <p><font face="Arial, Helvetica, sans-serif" size="3"><font size="2">In 
+          order to dele</font><font size="2">te a pattern, press the following 
+          button and confirm deletion:</font></font></p>
+        <table width="100%" border="0">
+          <tr>
+            <td><img src="gfx/deletepatternbutton.gif" width="23" height="24"></td>
+          </tr>
+        </table>
+        <p><font face="Arial, Helvetica, sans-serif" size="2">Note: If the pattern 
+          is used somewhere in the sequencer, it will be mute. This is until you 
+          have created a new pattern that replaces the old pattern's index (see 
+          number before name in combo box), whereafter the new pattern will be 
+          played. Thus, unless you want this effect, remember to remove the pattern 
+          from the sequencer.</font><b><font face="Arial, Helvetica, sans-serif" size="2"><br>
+          <br>
+          Copying<br>
+          <br>
+          </font></b><font face="Arial, Helvetica, sans-serif" size="2">To create 
+          a copy of a pattern:</font></p>
+        <table width="100%" border="0">
+          <tr>
+            <td width="14%"> 
+              <div align="center"><b><font face="Arial, Helvetica, sans-serif" size="2"><img src="gfx/copypatternbutton.gif" width="23" height="24"></font></b></div>
+            </td>
+            <td width="86%"><img src="gfx/copypatternbox.gif" width="152" height="113"></td>
+          </tr>
+        </table>
+        <p><font face="Arial, Helvetica, sans-serif" size="2">Name: Just fill 
+          in whatever name you want the copy to have.</font></p>
+        <p><font face="Arial, Helvetica, sans-serif" size="2">Length: The option 
+          of changing the length of the pattern will either crop your pattern 
+          if less then original length or add empty parameters if larger than 
+          original length. The value of Length is always defaulted to the original 
+          length.</font></p>
+        <p><font face="Arial, Helvetica, sans-serif" size="2">Note: You could 
+          create a new pattern and use the copy &amp; paste functions, instead 
+          of pattern copying. This function is only provided as a more forward 
+          method.</font><b><font face="Arial, Helvetica, sans-serif" size="2"><br>
+          </font></b></p>
+        <p><b><font face="Arial, Helvetica, sans-serif" size="2">Editing<br>
+          </font></b></p>
+        <p><font face="Arial, Helvetica, sans-serif" size="2">In order to edit 
+          a pattern, you have a number of columns at your disposal. Parameters 
+          in the first column from the left is the note parameter (or trigger 
+          in Sound 4). The following columns, that comes directly after each other, 
+          after the separating space, are the sound parameters. The number of 
+          sound parameters is different between channels.<br>
+          <br>
+          Each row in the pattern represents a beat. At each and everyone of these 
+          beats you can set a note, and together with a note change the sound 
+          parameters. A scroll bar is available to faster navigate the pattern:</font><b><font face="Arial, Helvetica, sans-serif" size="2"><br>
+          </font></b></p>
+        <table width="100%" border="0">
+          <tr>
+            <td><img src="gfx/patternediting.gif" width="238" height="107"></td>
+          </tr>
+        </table>
+        <p><font face="Arial, Helvetica, sans-serif" size="2">Just click on a 
+          parameter in order to select it. When a parameter list has input, you 
+          can navigate the entire pattern using the arrow keys. Note that when 
+          standing in a parameter column, you can view the parameter name and 
+          value range at the lower right of the program window:<br>
+          </font></p>
+        <table width="100%" border="0">
+          <tr>
+            <td><img src="gfx/patterncorner.gif" width="144" height="69"></td>
+          </tr>
+        </table>
+        <p><font face="Arial, Helvetica, sans-serif" size="2"> </font><font face="Arial, Helvetica, sans-serif" size="2">To 
+          set the note parameter: The keyboard layout for setting notes is kinda 
+          like the keyboard layout for an octave on a piano:</font></p>
+        <table width="100%" border="0">
+          <tr>
+            <td><img src="gfx/notekeys.gif" width="297" height="121"></td>
+          </tr>
+        </table>
+        <p><font face="Arial, Helvetica, sans-serif" size="2">As you can see, 
+          you can access two octaves at a time through the keyboard. The lower 
+          octave keys number is decided by the current octave setting, and the 
+          octave keys above is the current octave setting + 1. If you wonder which 
+          key correspond to which note, just try it out, or if you know the piano 
+          octave layout, that the key <i>Z</i> is the note C and <i>A</i> is C#.</font></p>
+        <p><font face="Arial, Helvetica, sans-serif" size="2">Changing octave: 
+          The current octave setting is displayed while in a sound mode:</font></p>
+        <table width="100%" border="0">
+          <tr> 
+            <td><img src="gfx/octavesetting.gif" width="44" height="38"></td>
+          </tr>
+        </table>
+        <p><font face="Arial, Helvetica, sans-serif" size="2">In order to modify 
+          it, stand in a parameter column and press the <i>divide</i> key to decrease 
+          or the <i>multiply</i> key to increase the octave setting. Both these 
+          keys are located at the numerical extension of the keyboard. </font></p>
+        <p><font face="Arial, Helvetica, sans-serif" size="2">To set the sound 
+          parameters: Stand at the parameter and just type in the value you want, 
+          using the numeric part of the keyboard. The program will stop you from 
+          entering invalid values as specified by the parameter range. In order 
+          to get negative number, enter the absolute number and then press the 
+          <i>subtract</i> key located at the numerical extension of the keyboard.</font></p>
+        <p><font face="Arial, Helvetica, sans-serif" size="2">Preset transfer: 
+          You can move the current preset slider settings (see <a href="#Presets">Presets</a>) 
+          to the sound settings of the pattern row on which you are standing by 
+          pressing <i>Page Up</i>. Note that you do not transfer the settings 
+          of the preset shown in the combo box, but the current slider settings. 
+          Reversibly, you can press <i>Page Down</i> to set the preset sliders 
+          from the current pattern row sound settings. </font></p>
+        <p><font face="Arial, Helvetica, sans-serif" size="2">Clearing a parameter: 
+          You can delete the current parameter in several ways. For numerical 
+          values you can press <i>backspace</i> or <i>Delete</i> to remove the 
+          least significant digit, these buttons can also be used to remove note 
+          parameters. For all parameters you can press <i>period</i> [.] to completely 
+          clear the setting.<br>
+          <br>
+          Transposing notes: You can transpose a sequence of notes up or down 
+          by pressing <i>Ctrl-T</i> this can save you alot of time. For example 
+          if you are creating a reverb effect by using the same melody in two 
+          channels, but transposed one step in one of the channels.<br>
+          </font></p>
+        <p><font face="Arial, Helvetica, sans-serif" size="2">Copy &amp; Paste: 
+          Just as in most standard Windows programs BoyScout lets you use the 
+          short keys, <i>Ctrl-C</i> and <i>Ctrl-V</i> to copy &amp; paste parameters.</font></p>
+        <p><font face="Arial, Helvetica, sans-serif" size="2">Important: Sound 
+          parameters can only be changed together with a note. Thus, any sound 
+          parameters set between notes are ignored. You don't have to specify 
+          all sound parameters when setting a note, know that sound parameters 
+          are kept between notes and patterns. Also, sound parameters are always 
+          internally set to a default value at start of playback.</font></p>
+        <p><font face="Arial, Helvetica, sans-serif" size="2">Causion: As sound 
+          parameters are kept between patterns, you might experience unexpected 
+          changes in you melodies, if not the first note in every pattern sets 
+          all of its sound parameters. This might be a desired effect, but is 
+          more likely to disturb the workflow. Also do not rely on the sound playback 
+          generated when setting notes, as these only reflects sound parameter 
+          changes within the current pattern, unless you know that no other pattern 
+          can influence the sound parameters of the pattern (such as setting all 
+          sound parameters of the first note or by knowing what you are doing).</font><b><font face="Arial, Helvetica, sans-serif" size="2"><br>
+          </font></b></p>
+        <p><b><font face="Arial, Helvetica, sans-serif" size="3"><a name="Presets"></a>Presets<br>
+          <br>
+          <font size="2">What?<br>
+          <br>
+          </font></font></b><font face="Arial, Helvetica, sans-serif" size="2"> 
+          I guess you can have a faily good idea of what a preset is. The slider 
+          settings shown to the left of the program, when in a sound channel, 
+          can always be transferred to a pattern row (see <a href="#Patterns">Patterns</a>, 
+          Editing):<br>
+          </font></p>
+        <table width="100%" border="0">
+          <tr>
+            <td><img src="gfx/presetsliders.gif" width="200" height="91"></td>
+          </tr>
+        </table>
+        <p><font face="Arial, Helvetica, sans-serif" size="2">If you have made 
+          a good sound setting that you like, you can save the settings as a preset, 
+          to easliy access </font><font face="Arial, Helvetica, sans-serif" size="2">this 
+          setting later on.</font><b><font face="Arial, Helvetica, sans-serif" size="2"><br>
+          </font></b></p>
+        <p><b><font face="Arial, Helvetica, sans-serif" size="2">Saving<br>
+          <br>
+          </font></b><font face="Arial, Helvetica, sans-serif" size="2">To save 
+          the current slider settings to a preset:</font><b><font face="Arial, Helvetica, sans-serif" size="2"> 
+          <br>
+          </font></b></p>
+        <table width="100%" border="0">
+          <tr>
+            <td width="13%"> 
+              <div align="center"><b><font face="Arial, Helvetica, sans-serif" size="2"><img src="gfx/savepreset.gif" width="23" height="24"></font></b></div>
+            </td>
+            <td width="87%"><img src="gfx/savepresetbox.gif" width="122" height="100"></td>
+          </tr>
+        </table>
+        <font face="Arial, Helvetica, sans-serif" size="2"><br>
+        Just name your preset and click OK. <br>
+        <br>
+        Note: You can save the song's presets to file (see <a href="#Managing">Managing 
+        Songs</a>).<br>
+        <b><br>
+        Selecting<br>
+        </b><br>
+        To set the preset sliders to a saved preset setting, just select the preset 
+        from the preset combo box.<br>
+        <br>
+        <b><font face="Arial, Helvetica, sans-serif" size="2">Updating<br>
+        <br>
+        </font></b><font face="Arial, Helvetica, sans-serif" size="2">To update 
+        the current preset with the new settings, just click this button and confirm 
+        update: <br>
+        </font> </font>
+        <table width="100%">
+          <tr> 
+            <td><img src="gfx/updatepreset.gif" width="23" height="24"></td>
+          </tr>
+        </table>
+        <font face="Arial, Helvetica, sans-serif" size="2"> <br>
+        Note: There is no such Update button in Sound 3 channel. It uses a checkbox 
+        to update the waveform instead (see The Wave Edit).<br>
+        <br>
+        </font><b><font face="Arial, Helvetica, sans-serif" size="2">Deleting<br>
+        <br>
+        </font></b><font face="Arial, Helvetica, sans-serif" size="2">In order 
+        to delete a preset just press the following button and confirm deletion:</font><b><font face="Arial, Helvetica, sans-serif" size="2"><br>
+        </font></b>
+<table width="100%" border="0">
+          <tr>
+            <td><img src="gfx/deletepreset.gif" width="23" height="24"></td>
+          </tr>
+        </table>
+        <br>
+        <b><font face="Arial, Helvetica, sans-serif" size="2">The Wave Edit<br>
+        <br>
+        </font></b><font face="Arial, Helvetica, sans-serif" size="2">There is 
+        one preset mode that needs further explaination, in channel Sound 3, there 
+        is the wave edit controller. Sound 3 uses arbitary wave forms of 32 steps. 
+        Sound 3 can therefore create some rather interesting sounds. The Sound 
+        3 channel does not have many settings, therefore the preset sliders are 
+        completely removed (no preset transfer can be done either) and are replaced 
+        by one wave editing controller:<br>
+        </font>
+<table width="100%" border="0">
+          <tr>
+            <td><img src="gfx/wavedit.gif" width="187" height="91"></td>
+          </tr>
+        </table>
+        <p><font face="Arial, Helvetica, sans-serif" size="2">When a wave form 
+          is saved to a preset it can be accessed by the Sound 3 patterns (Sound 
+          3's Wave Preset parameter).</font><b><font face="Arial, Helvetica, sans-serif" size="2"><br>
+          </font></b><font face="Arial, Helvetica, sans-serif" size="2"><br>
+          To draw a wave form, hold down the left mouse button and move the mose 
+          over the grid. The envelope is adjusted up and down, and the wave form 
+          steps increases to the left. The envelope is zero (mute) at the black 
+          line running across the grid.</font><b><font face="Arial, Helvetica, sans-serif" size="2"> 
+          </font></b><font face="Arial, Helvetica, sans-serif" size="2">Easy reset 
+          is done by holding the right button and moving the mouse across the 
+          desired steps.</font><b><font face="Arial, Helvetica, sans-serif" size="2"><br>
+          <br>
+          </font></b><font face="Arial, Helvetica, sans-serif" size="2">The wave 
+          form preset works quite similar to the other presets when it comes to 
+          saving and deleting. But with one major difference:</font></p>
+        <table width="550" border="0">
+          <tr>
+            <td><img src="gfx/editwavecheck.gif" width="137" height="35"></td>
+          </tr>
+        </table>
+        <p><font face="Arial, Helvetica, sans-serif" size="2">This check box, 
+          located below the wave edit controller, allows you, when checked, to 
+          edit the wave contents of the currently selected preset. This means 
+          you can change the wave form as the song is being played. This is an 
+          interesting tool that allows you to experiment with Sound 3 output. 
+          Just select the preset you want to edit from the preset combo box, check 
+          the edit box and change the wave form shape.</font><b><font face="Arial, Helvetica, sans-serif" size="2"><br>
+          </font></b> </p>
+        <p><b><font face="Arial, Helvetica, sans-serif" size="3"><a name="Channels"></a>Channels</font></b><b><font face="Arial, Helvetica, sans-serif" size="3"><br>
+          </font></b></p>
+        <table width="100%" border="0">
+          <tr>
+            <td width="12%"><b><font face="Arial, Helvetica, sans-serif" size="2">Sound 
+              1 </font></b></td>
+            <td width="88%"><b><font face="Arial, Helvetica, sans-serif" size="2"><img src="gfx/snd1button.gif" width="23" height="24"></font></b></td>
+          </tr>
+        </table>
+        <p><font face="Arial, Helvetica, sans-serif" size="2">Sound 1 channel 
+          generates a pulse wave form, of a certain distribution. To this wave 
+          form an envelope function and/or a sweep function can be applied. A 
+          sweep is kinda like note bend.<br>
+          </font></p>
+        <table width="100%" border="0" bgcolor="#AADFFF">
+          <tr> 
+            <td width="18%"><font face="Arial, Helvetica, sans-serif" size="2"><b>Parameter</b></font></td>
+            <td width="11%"><font face="Arial, Helvetica, sans-serif" size="2"><b>Range</b></font></td>
+            <td width="71%"><font face="Arial, Helvetica, sans-serif" size="2"><b>Description</b></font></td>
+          </tr>
+          <tr> 
+            <td width="18%"><font face="Arial, Helvetica, sans-serif" size="2">Note</font></td>
+            <td width="11%"><font face="Arial, Helvetica, sans-serif" size="2">C3 
+              to B8</font></td>
+            <td width="71%"><font face="Arial, Helvetica, sans-serif" size="2">The 
+              note will create an appropriate frequency for the wave form, enabling 
+              creation of melodies like on a piano.</font></td>
+          </tr>
+          <tr> 
+            <td width="18%"><font face="Arial, Helvetica, sans-serif" size="2">Envelope</font></td>
+            <td width="11%"><font face="Arial, Helvetica, sans-serif" size="2">0 
+              to 15</font></td>
+            <td width="71%"><font face="Arial, Helvetica, sans-serif" size="2">Envelope 
+              = Volume, 15 is max, 0 is mute.</font></td>
+          </tr>
+          <tr> 
+            <td width="18%"><font face="Arial, Helvetica, sans-serif" size="2">Envelope 
+              steps </font></td>
+            <td width="11%"><font face="Arial, Helvetica, sans-serif" size="2">-7 
+              to 7</font></td>
+            <td width="71%"><font face="Arial, Helvetica, sans-serif" size="2">This 
+              setting, if not 0, will cause the volume to increase (if positive) 
+              or decrease (if negative), changing the envelope every: <br>
+              <i>Envelope Change every ( |n| / 64) seconds</i></font></td>
+          </tr>
+          <tr> 
+            <td width="18%"><font face="Arial, Helvetica, sans-serif" size="2">Length</font></td>
+            <td width="11%"><font face="Arial, Helvetica, sans-serif" size="2">0 
+              to 63</font></td>
+            <td width="71%"><font face="Arial, Helvetica, sans-serif" size="2">This 
+              setting is the opposite of what one might think, the length is calculated 
+              according to:<br>
+              <i>Sound Length = ((64-n) / 256) seconds</i></font></td>
+          </tr>
+          <tr> 
+            <td width="18%"><font face="Arial, Helvetica, sans-serif" size="2">Duty 
+              Cycle </font></td>
+            <td width="11%"><font face="Arial, Helvetica, sans-serif" size="2">0 
+              to 3</font></td>
+            <td width="71%"><font face="Arial, Helvetica, sans-serif" size="2">Distribution 
+              of pulse: 0 = 12.5%, 1 = 25.0% 2 = 50.0% 3 = 75.0%</font></td>
+          </tr>
+          <tr> 
+            <td width="18%"><font face="Arial, Helvetica, sans-serif" size="2">Sweep 
+              Shifts </font></td>
+            <td width="11%"><font face="Arial, Helvetica, sans-serif" size="2">-7 
+              to 7</font></td>
+            <td width="71%"><font face="Arial, Helvetica, sans-serif" size="2">Number 
+              of sweep changes to do. A negative value will sweep down and positive 
+              value will sweep up.</font></td>
+          </tr>
+          <tr> 
+            <td width="18%"><font face="Arial, Helvetica, sans-serif" size="2">Sweep 
+              Time </font></td>
+            <td width="11%"><font face="Arial, Helvetica, sans-serif" size="2">0 
+              to 7</font></td>
+            <td width="71%"><font face="Arial, Helvetica, sans-serif" size="2">Interval 
+              time between sweep shifts is calculated like this:<br>
+              <i>Sweep shift every (n / 128) Hz</i></font></td>
+          </tr>
+        </table>
+        <br>
+        <table width="100%" border="0">
+          <tr>
+            <td width="12%"><b><font face="Arial, Helvetica, sans-serif" size="2">Sound 
+              2</font></b></td>
+            <td width="88%"><b><font face="Arial, Helvetica, sans-serif" size="2"><img src="gfx/snd2button.gif" width="23" height="24"></font></b></td>
+          </tr>
+        </table>
+        <p><font face="Arial, Helvetica, sans-serif" size="2">Sound 2 channel 
+          generates a pulse wave form just like Sound 1, an envelope function 
+          can be applied to </font> <font face="Arial, Helvetica, sans-serif" size="2">the 
+          wave form, but no sweep function is supported.<br>
+          </font></p>
+        <table width="100%" border="0" bgcolor="#AADFFF">
+          <tr> 
+            <td width="18%"><font face="Arial, Helvetica, sans-serif" size="2"><b>Parameter</b></font></td>
+            <td width="11%"><font face="Arial, Helvetica, sans-serif" size="2"><b>Range</b></font></td>
+            <td width="71%"><font face="Arial, Helvetica, sans-serif" size="2"><b>Description</b></font></td>
+          </tr>
+          <tr> 
+            <td width="18%"><font face="Arial, Helvetica, sans-serif" size="2">Note</font></td>
+            <td width="11%"><font face="Arial, Helvetica, sans-serif" size="2">C3 
+              to B8</font></td>
+            <td width="71%"><font face="Arial, Helvetica, sans-serif" size="2">The 
+              note will create an appropriate frequency for the wave form, enabling 
+              creation of melodies like on a piano.</font></td>
+          </tr>
+          <tr> 
+            <td width="18%"><font face="Arial, Helvetica, sans-serif" size="2">Envelope</font></td>
+            <td width="11%"><font face="Arial, Helvetica, sans-serif" size="2">0 
+              to 15</font></td>
+            <td width="71%"><font face="Arial, Helvetica, sans-serif" size="2">Envelope 
+              = Volume, 15 is max, 0 is mute.</font></td>
+          </tr>
+          <tr> 
+            <td width="18%"><font face="Arial, Helvetica, sans-serif" size="2">Envelope 
+              steps </font></td>
+            <td width="11%"><font face="Arial, Helvetica, sans-serif" size="2">-7 
+              to 7</font></td>
+            <td width="71%"><font face="Arial, Helvetica, sans-serif" size="2">This 
+              setting, if not 0, will cause the volume to increase (if positive) 
+              or decrease (if negative), changing the envelope every: <br>
+              <i>Envelope Change every ( |n| / 64) seconds</i></font></td>
+          </tr>
+          <tr> 
+            <td width="18%"><font face="Arial, Helvetica, sans-serif" size="2">Length</font></td>
+            <td width="11%"><font face="Arial, Helvetica, sans-serif" size="2">0 
+              to 63</font></td>
+            <td width="71%"><font face="Arial, Helvetica, sans-serif" size="2">This 
+              setting is the opposite of what one might think, the length is calculated 
+              according to:<br>
+              <i>Sound Length = ((64-n) / 256) seconds</i></font></td>
+          </tr>
+          <tr> 
+            <td width="18%"><font face="Arial, Helvetica, sans-serif" size="2">Duty 
+              Cycle </font></td>
+            <td width="11%"><font face="Arial, Helvetica, sans-serif" size="2">0 
+              to 3</font></td>
+            <td width="71%"><font face="Arial, Helvetica, sans-serif" size="2">Distribution 
+              of pulse: 0 = 12.5%, 1 = 25.0% 2 = 50.0% 3 = 75.0%</font></td>
+          </tr>
+        </table>
+        <br>
+        <table width="100%" border="0">
+          <tr> 
+            <td width="12%"><font face="Arial, Helvetica, sans-serif" size="2"><b>Sound 
+              3</b></font></td>
+            <td width="88%"><font face="Arial, Helvetica, sans-serif" size="2"><b><img src="gfx/snd3button.gif" width="23" height="24"></b></font></td>
+          </tr>
+        </table>
+        <br>
+        <font face="Arial, Helvetica, sans-serif" size="2">Sound 3 channel outputs 
+        arbitary 32-step wave forms which can be created in the wave editor</font>.<br>
+        <br>
+        <table width="100%" border="0" bgcolor="#AADFFF">
+          <tr> 
+            <td width="18%"><font face="Arial, Helvetica, sans-serif" size="2"><b>Parameter</b></font></td>
+            <td width="11%"><font face="Arial, Helvetica, sans-serif" size="2"><b>Range</b></font></td>
+            <td width="71%"><font face="Arial, Helvetica, sans-serif" size="2"><b>Description</b></font></td>
+          </tr>
+          <tr> 
+            <td width="18%"><font face="Arial, Helvetica, sans-serif" size="2">Note</font></td>
+            <td width="11%"><font face="Arial, Helvetica, sans-serif" size="2">C3 
+              to B8</font></td>
+            <td width="71%"><font face="Arial, Helvetica, sans-serif" size="2">The 
+              note will create an appropriate frequency for the wave form, enabling 
+              creation of melodies like on a piano.</font></td>
+          </tr>
+          <tr> 
+            <td width="18%"><font face="Arial, Helvetica, sans-serif" size="2">Envelope</font></td>
+            <td width="11%"><font face="Arial, Helvetica, sans-serif" size="2">0 
+              to 4</font></td>
+            <td width="71%"><font face="Arial, Helvetica, sans-serif" size="2">Envelope 
+              = Volume, 4 is max, 0 is mute.</font></td>
+          </tr>
+          <tr> 
+            <td width="18%"><font face="Arial, Helvetica, sans-serif" size="2">Length</font></td>
+            <td width="11%"><font face="Arial, Helvetica, sans-serif" size="2">0 
+              to 255</font></td>
+            <td width="71%"><font face="Arial, Helvetica, sans-serif" size="2">This 
+              setting is the opposite of what one might think, the length is calculated 
+              according to:<br>
+              <i>Sound Length = ((256-n) / 256) seconds</i></font></td>
+          </tr>
+          <tr> 
+            <td width="18%"><font face="Arial, Helvetica, sans-serif" size="2">Wave 
+              Preset </font></td>
+            <td width="11%"><font face="Arial, Helvetica, sans-serif" size="2">0 
+              to 255</font></td>
+            <td width="71%"><font face="Arial, Helvetica, sans-serif" size="2">A 
+              preset wave form index from the Sound 3 combo box, index is number 
+              in front of preset name.</font></td>
+          </tr>
+        </table>
+        <br>
+        <table width="100%" border="0">
+          <tr>
+            <td width="12%"><b><font face="Arial, Helvetica, sans-serif" size="2">Sound 
+              4</font></b></td>
+            <td width="88%"><b><font face="Arial, Helvetica, sans-serif" size="2"><img src="gfx/snd4button.gif" width="23" height="24"></font></b></td>
+          </tr>
+        </table>
+        <p><font face="Arial, Helvetica, sans-serif" size="2">Sound 4 channel 
+          generates white noise. An envelope function is supported.</font><br>
+        </p>
+        <table width="100%" border="0" bgcolor="#AADFFF">
+          <tr> 
+            <td width="18%"><font face="Arial, Helvetica, sans-serif" size="2"><b>Parameter</b></font></td>
+            <td width="11%"><font face="Arial, Helvetica, sans-serif" size="2"><b>Range</b></font></td>
+            <td width="71%"><font face="Arial, Helvetica, sans-serif" size="2"><b>Description</b></font></td>
+          </tr>
+          <tr> 
+            <td width="18%"><font face="Arial, Helvetica, sans-serif" size="2">Note</font></td>
+            <td width="11%"><font face="Arial, Helvetica, sans-serif" size="2">C3 
+              to B8</font></td>
+            <td width="71%"><font face="Arial, Helvetica, sans-serif" size="2">The 
+              note has no effect on noise output, but acts only as a trigger.</font></td>
+          </tr>
+          <tr> 
+            <td width="18%"><font face="Arial, Helvetica, sans-serif" size="2">Envelope</font></td>
+            <td width="11%"><font face="Arial, Helvetica, sans-serif" size="2">0 
+              to 15</font></td>
+            <td width="71%"><font face="Arial, Helvetica, sans-serif" size="2">Envelope 
+              = Volume, 15 is max, 0 is mute.</font></td>
+          </tr>
+          <tr> 
+            <td width="18%"><font face="Arial, Helvetica, sans-serif" size="2">Envelope 
+              steps </font></td>
+            <td width="11%"><font face="Arial, Helvetica, sans-serif" size="2">-7 
+              to 7</font></td>
+            <td width="71%"><font face="Arial, Helvetica, sans-serif" size="2">This 
+              setting, if not 0, will cause the volume to increase (if positive) 
+              or decrease (if negative), changing the envelope every: <br>
+              <i>Envelope Change every ( |n| / 64) seconds</i></font></td>
+          </tr>
+          <tr> 
+            <td width="18%"><font face="Arial, Helvetica, sans-serif" size="2">Length</font></td>
+            <td width="11%"><font face="Arial, Helvetica, sans-serif" size="2">0 
+              to 63</font></td>
+            <td width="71%"><font face="Arial, Helvetica, sans-serif" size="2">This 
+              setting is the opposite of what one might think, the length is calculated 
+              accodring to:<br>
+              <i>Sound Length = ((64-n) / 256) seconds</i></font></td>
+          </tr>
+          <tr> 
+            <td width="18%"><font face="Arial, Helvetica, sans-serif" size="2">Dividing 
+              Ratio Frequency</font></td>
+            <td width="11%"><font face="Arial, Helvetica, sans-serif" size="2">0 
+              to 7</font></td>
+            <td width="71%"><font face="Arial, Helvetica, sans-serif" size="2">Prescalar 
+              to polynomial noise function.</font></td>
+          </tr>
+          <tr> 
+            <td width="18%"><font face="Arial, Helvetica, sans-serif" size="2">Polynomial 
+              Counter Shifts</font></td>
+            <td width="11%"><font face="Arial, Helvetica, sans-serif" size="2">0 
+              to 13</font></td>
+            <td width="71%"><font face="Arial, Helvetica, sans-serif" size="2">Value 
+              to polynomial noise function. Noise shift frequency is calculated 
+              according to:<br>
+              <i>Shift Frequency = Div.Ratio.Freq x (1 / (2^</i>(n+1)) )<i> Hz</i></font></td>
+          </tr>
+          <tr> 
+            <td width="18%"><font face="Arial, Helvetica, sans-serif" size="2">Polynomial 
+              Counter Steps</font></td>
+            <td width="11%"><font face="Arial, Helvetica, sans-serif" size="2">0 
+              to 1</font></td>
+            <td width="71%"><font face="Arial, Helvetica, sans-serif" size="2">This 
+              controls the &quot;resolution&quot; of the noise, more steps gives 
+              a less &quot;repetetative&quot; noise (if audible) 0 = 15 steps, 
+              1 = 7 steps.</font></td>
+          </tr>
+        </table>
+        <br>
+        <table width="100%" border="0">
+          <tr>
+            <td width="27%"><b><font face="Arial, Helvetica, sans-serif" size="3"><a name="Sequencer"></a>The 
+              Sequencer</font></b></td>
+            <td width="73%"><img src="gfx/seqbutton.gif" width="23" height="24"></td>
+          </tr>
+        </table>
+        <b><font face="Arial, Helvetica, sans-serif" size="3"><br>
+        <font size="2">What?<br>
+        </font></font></b><font face="Arial, Helvetica, sans-serif" size="2"><br>
+        In non-pattern based software, you could say you only have a sequencer, 
+        nothing more. All song data is inserted into one long list, with all channel 
+        parameters viewable side by side. The sequencer in BoyScout is pattern 
+        based and shows the four GameBoy channels:<br>
+        <br>
+        </font> 
+        <table width="100%" border="0">
+          <tr>
+            <td><img src="gfx/sequencerview.gif" width="150" height="70"></td>
+          </tr>
+        </table>
+        <font face="Arial, Helvetica, sans-serif" size="3"><font size="2"> <br>
+        In these lists you place the pattern indices for each sound channel. One 
+        can say that you put the patterns into sequence.<br>
+        <br>
+        Note: It is the &quot;Sequencer Beats Per Row&quot; setting (see <a href="#Managing">Managing 
+        Songs</a>), that controls at what resolution you are allowed to place 
+        patterns in the sequencer. This has to be a compromise between overview 
+        and how dynamically you can use the patterns in the sequencer (this setting 
+        is 4 </font><font face="Arial, Helvetica, sans-serif" size="2"> in the 
+        above image, </font><font size="2">as can be seen by the interval).<br>
+        </font></font><b><font face="Arial, Helvetica, sans-serif" size="2"><br>
+        </font></b> 
+        <table width="100%" border="0">
+          <tr>
+            <td width="17%"><b><font face="Arial, Helvetica, sans-serif" size="2">Play 
+              &amp; Stop</font></b></td>
+            <td width="83%"><img src="gfx/playbutton.gif" width="23" height="24"><img src="gfx/stopbutton.gif" width="23" height="24"></td>
+          </tr>
+        </table>
+        <p><font face="Arial, Helvetica, sans-serif" size="2">These buttons controls 
+          the playback of the song. Their use is just as straightforward as they 
+          should be. Play starts playback at the position specified by the &quot;Begin&quot; 
+          setting, and loops at the position specified by the &quot;End&quot; 
+          setting. Stop resets and stops playback.<br>
+          <br>
+          Play and stop are not sequencer exclusive, but are exposed in the sound 
+          channel modes as well. Hitting play while in a sound channel has the 
+          same effect as in sequencer mode.<br>
+          <br>
+          When playing a song, a playbar marks the position of the current playback, 
+          to give you a better overview. This playbar is also shown in the current 
+          pattern being played. This is useful for tuning you melodies, as you 
+          can set the Begin and End settings over a pattern in the sequencer, 
+          press play and go to the channel and pattern to view playback.</font><b><font face="Arial, Helvetica, sans-serif" size="2"><br>
+          </font></b><font face="Arial, Helvetica, sans-serif" size="2"><br>
+          Note: It is possible to be editing in your patterns and in the sequencer 
+          while the song is being played. Playback might be stalled somewhat, 
+          but this is a very good thing when it comes to tuning your patterns 
+          and song.</font><b><font face="Arial, Helvetica, sans-serif" size="2"><br>
+          <br>
+          Begin &amp; End<br>
+          </font></b></p>
+        <table width="100%" border="0">
+          <tr>
+            <td><img src="gfx/beginend.gif" width="67" height="36"></td>
+          </tr>
+        </table>
+        <p><font face="Arial, Helvetica, sans-serif" size="2">To set Begin: Stand 
+          at the sequencer row from which playback should start, and press <i>Home.</i></font><b><font face="Arial, Helvetica, sans-serif" size="2"><br>
+          <br>
+          </font></b><font face="Arial, Helvetica, sans-serif" size="2">To set 
+          End: Stand at the sequencer row from which playback should loop, and 
+          press <i>End.</i><br>
+          <br>
+          Note: You cannot place Begin after End or wiseversa.<br>
+          </font><b><font face="Arial, Helvetica, sans-serif" size="2"><br>
+          Beat Length &amp; BPM<br>
+          <br>
+          </font></b><font face="Arial, Helvetica, sans-serif" size="2">When being 
+          in the sequencer mode, you can view the song's Beat Length and calculated 
+          BPM (Beats per Minute). BPM is a common tracker setting and is calculated 
+          for recognition:<br>
+          </font></p>
+        <table width="100%" border="0">
+          <tr>
+            <td><img src="gfx/beatlengthBPM.gif" width="114" height="31"></td>
+          </tr>
+        </table>
+        <p><font face="Arial, Helvetica, sans-serif" size="2">Modifying Beat Length:</font><b><font face="Arial, Helvetica, sans-serif" size="2"> 
+          </font></b><font face="Arial, Helvetica, sans-serif" size="2">It is 
+          possible to change the Beat Length of the song after it has been created, 
+          just click the &quot;Beat Length..&quot; text in the sequencer (shown 
+          above):<br>
+          </font></p>
+        <table width="100%" border="0">
+          <tr>
+            <td><img src="gfx/beatlength.gif" width="152" height="92"></td>
+          </tr>
+        </table>
+        <font face="Arial, Helvetica, sans-serif" size="2"><br>
+        The value will be defaulted to the current Beat Length value, valid values 
+        are greater than 0.</font><b><font face="Arial, Helvetica, sans-serif" size="2"> 
+        <br>
+        </font></b><b><font face="Arial, Helvetica, sans-serif" size="2"><br>
+        Editing <br>
+        <br>
+        </font></b><font face="Arial, Helvetica, sans-serif" size="2">There is 
+        always a sequencer pattern in BoyScout and editing it works just like 
+        with pattern editing. For the four sound channel listings, stand on the 
+        row where you want to place a pattern, then just use the numeric part 
+        of the keyboard to type in the pattern index:</font><b><font face="Arial, Helvetica, sans-serif" size="2"><br>
+        <br>
+        </font></b> 
+        <table width="100%" border="0">
+          <tr>
+            <td><img src="gfx/sequenceredit.gif" width="149" height="68"></td>
+          </tr>
+        </table>
+        <font face="Arial, Helvetica, sans-serif" size="2"><br>
+        When a pattern index has been set at a sequencer step, the name and length 
+        of the pattern can be view in the lower right corner of the application. 
+        If the index is invalid, the text will say &quot;Invalid pattern&quot;.<br>
+        <br>
+        </font>
+        <table width="100%" border="0">
+          <tr>
+            <td><img src="gfx/seqcorner.gif" width="154" height="74"></td>
+          </tr>
+        </table>
+        <br>
+        <font face="Arial, Helvetica, sans-serif" size="2">Note: Copy &amp; Paste 
+        works in the sequencer just as in sound channel patterns.<br>
+        <b><font face="Arial, Helvetica, sans-serif" size="2"><br>
+        </font></b></font>
+        <table width="550" border="0">
+          <tr>
+            <td width="157"><font face="Arial, Helvetica, sans-serif" size="2"><b><font face="Arial, Helvetica, sans-serif" size="2">Sound 
+              Channel On/Off</font></b></font></td>
+            <td width="383"><img src="gfx/buttonsoundon.gif" width="23" height="24"><img src="gfx/buttonsoundoff.gif" width="23" height="24"></td>
+          </tr>
+        </table>
+        <font face="Arial, Helvetica, sans-serif" size="2"><b><font face="Arial, Helvetica, sans-serif" size="2"> 
+        </font></b></font><b><font face="Arial, Helvetica, sans-serif" size="2"> 
+        <br>
+        </font></b><font face="Arial, Helvetica, sans-serif" size="2">Above each 
+        sound channel in the sequencer there is a button. This button toggles 
+        the sound channel On/Off. This is good to tweak sound events in a particular 
+        channel without being disturbed by the other channels playing.</font><b><font face="Arial, Helvetica, sans-serif" size="2"><br>
+        </font></b><font face="Arial, Helvetica, sans-serif" size="2"> <br>
+        </font> <b><font face="Arial, Helvetica, sans-serif" size="3"><a name="Programming"></a>Programming<br>
+        <br>
+        </font></b><font face="Arial, Helvetica, sans-serif" size="2">In this 
+        topic I will cover the BoyScout playback library<font size="3">.<font size="2"> 
+        </font><font face="Arial, Helvetica, sans-serif" size="2">Please do not 
+        send me emails asking </font><font size="2">how to link a GBA project 
+        or how to get data into ROM. These are issues you will have to solve on 
+        you own. There are plenty of resource on net, see <a href="#Credits">Credits</a> 
+        for links. The playback library is in plain C, so there should be no compiler 
+        issues. Just for the record, I use GCC and I have not tried it with any 
+        ARM compiler.<br>
+        </font></font></font><b><font face="Arial, Helvetica, sans-serif" size="3"><br>
+        <font size="2">Source files<br>
+        <br>
+        </font></font></b><font face="Arial, Helvetica, sans-serif" size="2">The 
+        BoyScout distribution comes with a few playback library files:<br>
+        <br>
+        </font> 
+        <table width="100%" border="0" bgcolor="#99CCFF">
+          <tr> 
+            <td width="22%"><font face="Arial, Helvetica, sans-serif" size="2"><b>File</b></font></td>
+            <td width="78%"><font face="Arial, Helvetica, sans-serif" size="2"><b>Description</b></font></td>
+          </tr>
+          <tr> 
+            <td width="22%"><font face="Arial, Helvetica, sans-serif" size="2"><i>BoyScout.c</i></font></td>
+            <td width="78%"><font face="Arial, Helvetica, sans-serif" size="2">Compile 
+              and link this file with your project. The file contains the neccessary 
+              functions for song playback on the GameBoy Advance.</font></td>
+          </tr>
+          <tr> 
+            <td width="22%"><font face="Arial, Helvetica, sans-serif" size="2"><i>BoyScout.h</i></font></td>
+            <td width="78%"><font face="Arial, Helvetica, sans-serif" size="2">Include 
+              this file in the files in which you want BoyScout playback capabilities.</font></td>
+          </tr>
+          <tr> 
+            <td width="22%"><font face="Arial, Helvetica, sans-serif" size="2"><i>GBASoundRegs.h</i></font></td>
+            <td width="78%"><font face="Arial, Helvetica, sans-serif" size="2">Internally 
+              used file to manage GameBoy Advance sound registers.</font></td>
+          </tr>
+        </table>
+        <p><font face="Arial, Helvetica, sans-serif" size="2"> Note: You are not 
+          required to use these files for playback. The files provided are just 
+          a robust playback shell written in C, and can be used for educational 
+          purposes. If you do decide to write your own playback functions, please 
+          share them for others to use and let me know about them.<br>
+          </font><b><font face="Arial, Helvetica, sans-serif" size="2"><br>
+          Function overview<br>
+          <br>
+          </font></b><font face="Arial, Helvetica, sans-serif" size="2">There 
+          are not many functions needed for BoyScout song playback:</font></p>
+        <table width="100%" border="0" bgcolor="#99CCFF" bordercolor="#000000">
+          <tr>
+            <td bordercolor="#000000"><font face="Arial, Helvetica, sans-serif" size="2"><i>void 
+              BoyScoutInitialize( );</i></font><b><font face="Arial, Helvetica, sans-serif" size="2"><br>
+              <br>
+              </font></b><font face="Arial, Helvetica, sans-serif" size="2">Initializes 
+              BoyScout, call this function once, before any other BoyScout function. 
+              The function resets internal variables and structures.</font></td>
+          </tr>
+        </table>
+        <br>
+        <table width="100%" border="0" bgcolor="#99CCFF">
+          <tr>
+            <td><font face="Arial, Helvetica, sans-serif" size="2"><i>unsigned 
+              short BoyScoutGetNeededSongMemory(unsigned char *pSongData);</i></font><br>
+              <br>
+              <font face="Arial, Helvetica, sans-serif" size="2">Function returns 
+              the needed RAM area size for proper playback of a particular BoyScout 
+              song, input is a pointer to the BoyScout song data.</font></td>
+          </tr>
+        </table>
+        <br>
+        <table width="100%" border="0" bgcolor="#99CCFF">
+          <tr>
+            <td><font face="Arial, Helvetica, sans-serif" size="2"><i>void BoyScoutSetMemoryArea(unsigned 
+              int nMemoryAddress);</i></font><br>
+              <br>
+              <font face="Arial, Helvetica, sans-serif" size="2">Call this function 
+              to set the address of the beginning of a memory area allocated for 
+              BoyScout's internal structures. The size of this area will depend 
+              on the number of patterns in the BoyScout song, use <i>BoyScoutGetNeededSongMemory</i> 
+              to get the exact size.</font></td>
+          </tr>
+        </table>
+        <br>
+        <table width="100%" border="0" bgcolor="#99CCFF">
+          <tr>
+            <td><font face="Arial, Helvetica, sans-serif" size="2"><i>void BoyScoutOpenSong(unsigned 
+              char *pSongData);</i></font><br>
+              <br>
+              <font face="Arial, Helvetica, sans-serif" size="2">The function 
+              takes a pointer to BoyScout song data and does the neccessary preparations 
+              for playback.</font> </td>
+          </tr>
+        </table>
+        <br>
+        <table width="100%" border="0" bgcolor="#99CCFF">
+          <tr>
+            <td><font face="Arial, Helvetica, sans-serif" size="2"><i>void BoyScoutPlaySong(int 
+              nLoop);</i></font><b><font face="Arial, Helvetica, sans-serif" size="2"><br>
+              <br>
+              </font></b><font face="Arial, Helvetica, sans-serif" size="2">Starts 
+              playback of the currently open BoyScout song. A loop setting of 
+              0 stops the song when the end is reached, non zero and the song 
+              will restart from the beginning.</font></td>
+          </tr>
+        </table>
+        <br>
+        <table width="100%" border="0" bgcolor="#99CCFF">
+          <tr>
+            <td><font face="Arial, Helvetica, sans-serif" size="2"><i>int BoyScoutUpdateSong( 
+              );</i></font><b><font face="Arial, Helvetica, sans-serif" size="2"><br>
+              <br>
+              </font></b><font face="Arial, Helvetica, sans-serif" size="2">Function 
+              updates song playback. Call this function first thing when entering 
+              a new vertical blank. This will be crusial to the song syncronization. 
+              If playback is set to a non-looping mode, it will return 0 when 
+              playback has finished.</font></td>
+          </tr>
+        </table>
+        <br>
+        <table width="100%" border="0" bgcolor="#99CCFF">
+          <tr>
+            <td><font face="Arial, Helvetica, sans-serif" size="2"><i>void BoyScoutStopSong( 
+              );</i></font><b><font face="Arial, Helvetica, sans-serif" size="2"><br>
+              <br>
+              </font></b><font face="Arial, Helvetica, sans-serif" size="2">Stops 
+              song playback.</font></td>
+          </tr>
+        </table>
+        <b><font face="Arial, Helvetica, sans-serif" size="2"><br>
+        Code Example<br>
+        <br>
+        </font></b><font face="Arial, Helvetica, sans-serif" size="2">The following 
+        example opens a BoyScout song and starts playback looping infinitly. The 
+        code demonstrates all the BoyScout functions and all you need to get started. 
+        Just a note, it may be easier to work with BoyScout if you put <i>BoyScoutUpdateSong</i> 
+        in a V-Blank interrupt. Note that the following code requires you to have 
+        a functioning malloc routine. A good linkscript should allocate memory 
+        in external RAM.<br>
+        <br>
+        </font> 
+        <table width="100%" border="0">
+          <tr> 
+            <td><font face="Arial, Helvetica, sans-serif" size="2">void AgbMain(void)<br>
+              {</font></td>
+          </tr>
+        </table>
+        <table width="100%" border="0">
+          <tr> 
+            <td width="6%">&nbsp;</td>
+            <td width="94%"><font face="Arial, Helvetica, sans-serif" size="2">unsigned 
+              int nBSSongSize;</font> 
+              <p><font face="Arial, Helvetica, sans-serif" size="2"> // Initialize 
+                BoyScout<br>
+                BoyScoutInitialize();</font></p>
+              <p><font face="Arial, Helvetica, sans-serif" size="2"> // Get needed 
+                song memory<br>
+                nBSSongSize = BoyScoutGetNeededSongMemory((unsigned char *)SongData);</font></p>
+              <p><font face="Arial, Helvetica, sans-serif" size="2"> // Allocate 
+                and set BoyScout memory area<br>
+                BoyScoutSetMemoryArea((unsigned int)malloc(nBSSongSize));</font></p>
+              <p><font face="Arial, Helvetica, sans-serif" size="2"> // Open song<br>
+                BoyScoutOpenSong((unsigned char *)SongData);</font></p>
+              <p><font face="Arial, Helvetica, sans-serif" size="2"> // Play song 
+                and loop<br>
+                BoyScoutPlaySong(1);</font></p>
+              <p><font face="Arial, Helvetica, sans-serif" size="2"> while(1)<br>
+                {</font></p>
+            </td>
+          </tr>
+        </table>
+        <table width="100%" border="0">
+          <tr> 
+            <td width="12%" height="100">&nbsp;</td>
+            <td width="88%" height="100"><font face="Arial, Helvetica, sans-serif" size="2">// 
+              Wait for vertical blank<br>
+              WaitForVSync(); </font> 
+              <p><font face="Arial, Helvetica, sans-serif" size="2"> // Update 
+                song<br>
+                BoyScoutUpdateSong();</font></p>
+            </td>
+          </tr>
+        </table>
+        <table width="100%" border="0">
+          <tr> 
+            <td width="6%">&nbsp;</td>
+            <td width="94%"><font face="Arial, Helvetica, sans-serif" size="2">}<br>
+              <br>
+              // This part will never be reached but just for completion<br>
+              // Free memory<br>
+              free((void *)BoyScoutGetMemoryArea());</font></td>
+          </tr>
+        </table>
+        <table width="100%" border="0">
+          <tr> 
+            <td><font face="Arial, Helvetica, sans-serif" size="2">}</font></td>
+          </tr>
+        </table>
+        <b><font face="Arial, Helvetica, sans-serif" size="2"><br>
+        </font></b> 
+        <table width="525" border="0" cellpadding="20">
+          <tr>
+            <td bgcolor="#99CCFF"><b><font face="Arial, Helvetica, sans-serif" size="3"><a name="Credits"></a>Credits<br>
+              <br>
+              <font size="2">Programming:<br>
+              </font></font></b><font face="Arial, Helvetica, sans-serif" size="2"><i><a href="mailto:christer@pidelipom.com">Christer 
+              Andersson</a></i><b><br>
+              <br>
+              Additional Design:<br>
+              </b><i>Markus 
+              Hoglund</i><b><br>
+              <br>
+              Programming help, testing &amp; suggestions:<br>
+              </b><i><a href="mailto:larsby@elak.org">Johan 
+              Larsby</a> (Scania demo group)</i><b><br>
+              <br>
+              Playback library bug fixes and help:<br>
+              </b>Dave Murphy (WinterMute)<br>
+              Willem Kokke
+              <br>
+              <b><br>
+              More or less moral support:<br>
+              </b><i>Jens 
+              Olsson</i></font>              <font face="Arial, Helvetica, sans-serif" size="2">:O)<b><br>
+              <br>
+              Greetings to:</b></font><font face="Arial, Helvetica, sans-serif" size="3"><font size="2"> 
+              <br>
+              </font><font face="Arial, Helvetica, sans-serif" size="2">Robert 
+              Kopsen ( Let me know if you need any help with SC9 )<b><br>
+              </b></font><font size="2">IRC #GBADev @ EfNet<br>
+              <a href="http://www.gbadev.org">http://www.gbadev.org</a><br>
+              <a href="http://www.devrs.com/gba/">http://www.devrs.com/gba/</a><br>
+              </font></font><b><font face="Arial, Helvetica, sans-serif" size="2"><br>
+              <br>
+              </font></b><font face="Arial, Helvetica, sans-serif" size="2"><i>BoyScout 
+              by: Christer Andersson - Copyright &copy; 2001-2005</i></font><br>
+            </td>
+          </tr>
+        </table>
+        
+      </td>
+    </tr>
+  </table>
+  <p>&nbsp;</p>
+  </div>
+</body>
+</html>

@@ -1,0 +1,54 @@
+This document is about the compressed Nintendo Logo image which must be 
+included in a ROM image's header.  Without it, the Gameboy Advance will
+refuse to run the ROM.  DevKit Advance does not provide this because it
+is a potential nightmare.  However, it turns out that this is not a big
+problem at all.
+
+By default, the ROM header provided by crt0.o will not work.  The area
+of the header that should contain the Nintendo Logo image is all zeros.  
+Fortunately, if you recompile the header (See crtls.txt), change the
+NINTENDO_LOGO option in crt0-config.h to 1, and provide a file named
+nintendo-logo.S thats contains the proper logo then you are ready to 
+go.  This feature is intended for licensed developers who can just copy 
+and paste the logo from Nintendo's examples into a file called 
+nintendo-logo.S.
+
+Failing that, all flash programmers and multiboot cable utilities used
+by hobbiests are capable of patching the header before loading it into
+a flash-cart.  So, unless you have to provide a proper ROM image to
+Nintendo for testing or manufacture, you should not have any problems.
+
+There is a program called 'headit' which comes with DevKit Advance and
+can be used to manipulate the ROM header.  One of its features is the
+ability to create nintendo-logo.S from a ROM file.  Asking that someone
+abide by the law when using the feature would be stating the obvious.
+
+Why does DevKit Advance not include the logo data?
+
+The logo is not an effective -technical- security method, but it may
+provide a useful -legal- one for Nintendo.  In the U.S., there was a
+court decision (Sega v Accolade) which takes the teeth out of any
+claim Nintendo might have in Trademark or Copyright law to bar the
+inclusion of this data, because it is required in order for the system
+to work.  But, in other countries the reality may be quite different,
+and DevKit Advance is not just used by Americans.
+
+Also, there is a law in the U.S. called the DMCA which is still being
+subject to wildly varying intrepretations.  In such an environment, it
+is dangerous to do anything which can be construed as "circumventing a
+copy protection measure."  Any questions about what is and is not
+against the law will be tested in court as lawyers attempt to get the
+most aggressive intrepretation possible.
+
+On the Internet we can debate all day long about how the Nintendo logo
+data is not a copy protection mechanism, but when you start arguing
+with Nintendo it will be in court, and it would cost you money and
+time even if you win.
+
+All this makes Nintendo sound like some boogey man, but I do not
+believe that at all.  Nintendo is just adding another weapon to the
+arsenal it can use against the illegal copying of games, which it
+as every right to do, but I have no intention of giving Nintendo a
+reason to use this weapon against anyone who uses DevKit Advance.
+
+

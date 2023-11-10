@@ -1,0 +1,14 @@
+This will contain a list of people who have contributed in large and smalls
+ways to DevKit Advance.
+
+
+
+crt0.S is based on crt0.S v1.28 by Jeff Frohwein
+
+The following people contributed to the original:
+	DarkFader
+	Jeff Frohwien
+	Mike Heckenbach
+	Mark Price
+	Jason Wilkins <fenix AT io DOT com>
+	and others

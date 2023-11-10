@@ -10,3 +10,6 @@
 
 <h3>Am I allowed to do this?</h3>
 <p>Yes! I have been given permission from airdolf himself to create this game! I asked for permission ahead of time from him before I started making this game because I don't want to go to jail for a law I didn't know existed preventing me from doing this.</p>
+
+<h1>What is the "DevTools" Folder?</h1>
+<p>That folder is all of the tools I've used with this program for creating assets for the game. /n I may change out what I use, but everything I'm testing is there.</p>
