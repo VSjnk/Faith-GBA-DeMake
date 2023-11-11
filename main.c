@@ -1,7 +1,7 @@
 
 //---#defines---
 #include "gba.h"
-
+#include "levelStuff.c"
 
 //---Math functions---
 #include <math.h> 
@@ -175,8 +175,10 @@ int main()
   
  init();                                                             //init game variables
 
+
  while(repeat) 
  { 
+	playerLoc(posX, posY);
 	 if(stateID==0)
 	{
 			//Title Code Goes Here.
@@ -197,7 +199,7 @@ int main()
 	
 	if(stateID==2)
 	{
-   clearBackground(15, 15, 15);//clear background-----------------------------------------
+//   clearBackground(15, 15, 15);//clear background-----------------------------------------
    buttons();                                                        //button input
    updatePlayer();
 	}
