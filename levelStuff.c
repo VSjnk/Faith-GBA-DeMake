@@ -1,15 +1,13 @@
-//currenty this code doesn't do much, just tests the position code.
+//this controlls the map stuff
 #include <math.h>
 
-
-//#include "levelData/OutsideBeta.c"
+#include "levelAssets/tree1.c"
+#include "levelAssets/Road.c"
 
 int playerLoc(int X, int Y) {
-if(X == 0 && Y ==0)
-{
 	clearBackground(0, 0, 0);
-}else
+	if(Y ==0)
 	{
-		clearBackground(10, 10, 10);
-	};
+	drawImage(120, 15, 0, 55, road_Map, 0);
+	}
 }
