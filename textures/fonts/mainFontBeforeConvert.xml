@@ -1,0 +1,35 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<PersistableFontDetails xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <Letterset>ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789.,?!-~#"'</Letterset>
+  <AdjustHeight>1</AdjustHeight>
+  <AdjustWidth>2</AdjustWidth>
+  <SampleText>The quick brown fox jumped over the lazy dog.</SampleText>
+  <ShiftHorz>1</ShiftHorz>
+  <ShiftVert>1</ShiftVert>
+  <ShowGrid>true</ShowGrid>
+  <ShowBoundary>false</ShowBoundary>
+  <Size>8</Size>
+  <StrikeOut>false</StrikeOut>
+  <Underline>false</Underline>
+  <IsFill>true</IsFill>
+  <IsOutlineOne>false</IsOutlineOne>
+  <IsOutlineTwo>false</IsOutlineTwo>
+  <IsShadow>false</IsShadow>
+  <OutlineOneWidth>1</OutlineOneWidth>
+  <OutlineTwoWidth>2</OutlineTwoWidth>
+  <ShadowWidth>4</ShadowWidth>
+  <ShadowOffsetX>4</ShadowOffsetX>
+  <ShadowOffsetY>4</ShadowOffsetY>
+  <FontStyleDisplayName>Regular</FontStyleDisplayName>
+  <Height>12</Height>
+  <Width>14</Width>
+  <FontFamilyName>FAITH</FontFamilyName>
+  <FontStyleName>Normal</FontStyleName>
+  <FontStretchName>Normal</FontStretchName>
+  <FontWeightName>Normal</FontWeightName>
+  <FillColourName>#FFF0F8FF</FillColourName>
+  <OutlineOneColourName>#FF008000</OutlineOneColourName>
+  <OutlineTwoColourName>#FFFF0000</OutlineTwoColourName>
+  <ShadowColourName>#80000000</ShadowColourName>
+  <SampleBackgroundColourName>#FF000000</SampleBackgroundColourName>
+</PersistableFontDetails>

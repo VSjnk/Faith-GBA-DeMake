@@ -1,0 +1,150 @@
+<!doctype html public "-//w3c//dtd html 4.0 transitional//en">
+<html>
+<head>
+   <meta name="generator" content="Netscape">
+   <meta name="Author" content="ing. Darie Lucian - 092/874548">
+   <meta name="Description" content="Software">
+   <title>Tektronic Wave</title>
+
+<link REL="stylesheet" TYPE="text/css" HREF="theme.css" theme="Redside">
+<link REL="stylesheet" TYPE="text/css" HREF="graph0.css" 0theme="Redside">
+<link REL="stylesheet" TYPE="text/css" HREF="color0.css" 0theme="Redside">
+<link REL="stylesheet" TYPE="text/css" HREF="custom.css" theme="Redside"></head>
+<body text="#000000" bgcolor="#ffffcc" link="#0000ee" vlink="#551a8b" alink="#ff0000">
+<TABLE align=center bgColor=lightgoldenrodyellow border=2 cellPadding=1 
+cellSpacing=1 width="75%" 
+  style="HEIGHT: 28px; WIDTH: 231px">
+  <TR>
+    <TD align=middle>
+        <P><FONT size=2 style="COLOR: #006633" 
+     ><STRONG><FONT face="" >Welcome to Tektronic Wave</FONT></STRONG></FONT></P></TD></TR></TABLE>
+<DL>
+  <DT>
+<DT>
+  <HR style="LEFT: 50px; TOP: 107px">
+<DT><FONT size=2 style="COLOR: midnightblue"><STRONG><U style="COLOR: mediumblue" 
+  ><IMG alt="" src="redbul2a.gif">Tektronic 
+  Wave</U></STRONG></FONT></DT></DL>
+<P><IMG alt="" src="redbul1a.gif" ><FONT color=#ff0000 
+size=2><STRONG><U>About Tektronic Wave</U></STRONG></FONT></P>
+<P><FONT size=2>This 
+tool is a wave to C/C++ converter/generator mainly designed to use in GBA sound 
+development.</FONT></P>
+<P><FONT style="COLOR: black"> <FONT 
+size=2> The software is able to convert multiple input to output 
+wave formats. Based on a practical Windows graphical user interface, it is 
+possible to form a list of input waves, set the output desired format (8-44.1 KHz 
+sampling rate, 8 bit, Mono for GBA) for each wave file in 
+list, test the converted format and finally to generate C/C++ module and header 
+files suitable to use in GBA sound development. Most of the PCM formats are 
+supported for input waves files (8/16 bit,Mono/Stereo/8-44.1 KHz). </FONT>   </FONT></P>
+<P><FONT size=2><FONT style="COLOR: black"><STRONG><IMG alt="" src="redbul1a.gif" 
+><U style="COLOR: red">Requirements:</U><FONT color=#ff0000> 
+</FONT></STRONG> Windows 
+98/Millenium/NT/2000</FONT><FONT style="COLOR: black">. <U><STRONG>Note:</STRONG></U>  DirectX is 
+not required.</FONT></FONT></P>
+<P style="COLOR: black"><FONT size=2><FONT style="COLOR: black"><STRONG><IMG alt="" src="redbul1a.gif" ><U 
+style="COLOR: red">Current version:</U></STRONG>  
+1.0</FONT></FONT></P>
+<P><FONT size=2><FONT style="COLOR: black"><STRONG><FONT size=2><FONT 
+style="COLOR: black"><STRONG style="COLOR: red"><U><IMG alt="" 
+src="redbul1a.gif">Using Tektronic Wave</U> 
+</STRONG></FONT></FONT></STRONG> 
+                 
+</FONT></FONT></P>
+<P><FONT size=2><STRONG>Tektronic Wave </STRONG>is easy to use and understand 
+only&nbsp;using it for a few minutes.&nbsp;For this&nbsp;reason it will be 
+explained only the main functionality. Below it is shown the main 
+window:</FONT></P>
+<P><IMG alt="" src="tektronicscreen.jpg" ></P>
+<P><FONT size=2>For each wave file added in list you can see the original wave properties. 
+When you add an wave file, it will be asked to associate C/C++ variable. 
+Using "at sampling rate [KHz]", for each wave file in list you mark the output 
+sampling rate, implicitly at 8 bit, Mono (suitable for GBA sound). Before 
+to generate, use "Play converted" button to hear the differencies. The "Test 
+generator" button will inform you if it is possible to convert between all input 
+to output formats for all wave files in list. The wave files must use PCM 
+format. After pressing "Generate" button, the tool will generate two C/C++ files, 
+"sound.c" and "sound.h" in the current directory. Along with <STRONG>Tektronic 
+Wave</STRONG> comes&nbsp;the "TektronicWave.h" 
+ file. This file is #include (d) in both 
+above generated files. See it for more details. The data samples are converted as 
+const signed/unsigned char C/C++ array. In your project #include "sound.h" and 
+compile &amp; link the "sound.c" file. In fact, you will use the 
+associated variables&nbsp;as PCMSOUND typedef structure defined in 
+"TektronicWave.h" header file. See source demo for&nbsp;GBA in download section 
+of this help file to see a real use of the associated variables. The PCM data 
+format in wave files have the following values: 0 low - 128 middle - 255 high. 
+For GBA, the samples must be (-128) - 0 - 127. The tool convert between these 
+ranges if you check the "PCM for GBA"&nbsp;option(default). If not, the range 
+values&nbsp;for samples&nbsp;remain unchanged.</FONT></P>
+<P><FONT size=2>See here (local link): <A href="go.wav">go.wav</A>&nbsp;a wave 
+source file with 22.05 KHz sampling rate, 8 bit, Stereo, 2x37800 samples, the 
+generated <A href="sound.c.txt">sound.c</A>&nbsp;file at 8 KHz, 8 bit, Mono, 13744 
+samples (important: see also the end of file) and the generated <A 
+href="sound.h.txt">sound.h</A>&nbsp;file where the associated variables are 
+defined.</FONT></P>
+<P><FONT size=2><STRONG>Note:</STRONG> it is possible 
+that&nbsp;the number of samples of input source not to be equal with the number 
+of samples in output (char C array). </FONT></P>
+<P><FONT size=2><FONT style="COLOR: black"><U style="COLOR: red"><STRONG><IMG 
+alt="" src="redbul1a.gif" >Copyright:</STRONG></U> &nbsp;(c) 2003 , Lucian 
+Darie.</FONT></FONT></P>
+<P><FONT size=2><STRONG>Tektronic 
+Wave&nbsp;</STRONG>software is delivered "AS IS" without any WARRANTY. Use it on 
+your own risk. No responsability is assumed by author. </FONT></P>
+<P><FONT size=2>All packages in&nbsp; <FONT 
+size=2><STRONG>Tektronic Wave&nbsp;</STRONG>download section<STRONG> 
+</STRONG></FONT> are&nbsp;FREE&nbsp;for any of you to use it in non 
+comercial activities (research,learning,teaching,tests, ...). Also, for these packages, 
+no technical support of any way.</FONT></P>
+<P><FONT size=2>If you need <STRONG>Tektronic Wave 
+</STRONG> to use in sound development or for other reasons you are pleased 
+to contact the author, <STRONG>Lucian Darie</STRONG> at <A 
+href="mailto:tektronic@home.ro">tektronic@home.ro</A> or <A 
+href="mailto:darien@xnet.ro">darien@xnet.ro</A> . Generally, a 
+deductible&nbsp;payment of 10$ (or equivalent in Euro) is required. Also, in these cases you can get 
+technical support for current and future versions.</FONT></P>
+<P><FONT size=2><STRONG><U style="COLOR: red"><FONT size=2><FONT 
+style="COLOR: black"><STRONG style="COLOR: red"><U><IMG alt="" 
+src="redbul1a.gif" 
+></U></STRONG></FONT></FONT>Download:</U></STRONG> </FONT></P>
+<P> <A href="http://www.tektronic.home.ro/TektronicWaveBase.zip" ><FONT size=1><STRONG>Tektronic Wave 
+Base</STRONG></FONT></A><FONT size=2><FONT 
+size=1>&nbsp;</FONT>: Tektronic 
+Wave.exe, (this) help 
+,TektronicWave.h, approx. 248 kb. </FONT></P>
+<P>    <A href="http://www.tektronic.home.ro/TektronicWaveGbaBin.zip"><FONT size=1><STRONG>Demo for Gba</STRONG></FONT></A><FONT size=2><FONT size=1>&nbsp;</FONT>  
+   </FONT><FONT size=2>:<FONT size=1> 
+</FONT></FONT><FONT size=2>tektronicwave.gba,&nbsp;rom file, approx. 154 
+Kb.</FONT></P>
+<P><FONT size=2><A href="http://www.tektronic.home.ro/TektronicWaveGbaSrc.zip"><STRONG><FONT size=1>Demo 
+for Gba </FONT></STRONG>   
+</A>: source code for demo 
+using <STRONG>Tektronic Wave </STRONG>in GBA sound development , approx. 216 kb. 
+</FONT></P>
+<P><FONT size=2><FONT size=2><FONT 
+style="COLOR: black"><STRONG><U style="COLOR: red"><IMG alt="" 
+src="redbul1a.gif" >About author:</U></STRONG> Lucian Darie , Tektronic 
+team manager , Vaslui - Romania. Trade number: F37/411/99 , Fiscal 
+unique code: 1720111374066</FONT></FONT> </FONT></P>
+<P><FONT size=1>Other current activities of Tektronic team: SCO UNIX &amp; 
+Windows 2000 OS , Informix Dynamic Server Databases, C/C++ , TCP/IP LAN-WANs 
+</FONT></P>
+<P>
+<FONT style="COLOR: darkslategray"> <FONT size=2><STRONG><FONT size=2><FONT size=2><FONT style="COLOR: black"><U><IMG alt="" 
+src="redbul1a.gif" ></U></FONT></FONT> </FONT>Please, send bugs, 
+suggestions to improve performance and critics at: </STRONG></FONT><A 
+href="mailto:tektronic@tektronic.home.ro"><FONT 
+size=2></FONT></A></FONT><FONT color=#0000ee size=2><U><A 
+href="mailto:tektronic@home.ro">tektronic@home.ro</A></U></FONT></P>
+<P><FONT size=2><FONT size=2>Best 
+regards ,</FONT>    </FONT></P>
+<P><FONT size=2>2003 ,&nbsp;Lucian Darie, </FONT><A href="http://www.tektronic.home.ro"><FONT 
+size=2>www.tektronic.home.ro<SPAN></SPAN></FONT></A></P>
+<DT><FONT size=1>
+<HR>
+</FONT><FONT size=1>Tektronic &amp; Lucian Darie is not associated in any 
+way with GBA. </FONT>
+</DT>
+</body></html>

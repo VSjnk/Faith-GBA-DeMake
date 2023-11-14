@@ -1,0 +1,50 @@
+<style>
+a:link
+{
+	color: rgb(255,0,255); 
+}
+a:visited
+{
+	color: rgb(128,0,0); 
+} 
+a:active 
+{
+	color: rgb(255,0,255);
+}
+body
+{
+	background-color: rgb(255, 255, 255);
+	margin-left: 50px;
+	color: rgb(0,0,0);
+}
+table
+{
+	table-border-color-light: rgb(255, 128,128);
+	table-border-color-dark: rgb(128,64,64); 
+}
+h1
+{
+	color: rgb(255,0,0);
+}
+h2
+{
+	color: rgb(255,0,0);
+}
+h3
+{
+	color: rgb(128,64,64); 
+}
+h4
+{
+	color: rgb(255,0,0);
+}
+h5
+{
+	color: rgb(128,64,64); 
+}
+h6
+{
+	color: rgb(128,64,64); 
+
+}
+</style>.

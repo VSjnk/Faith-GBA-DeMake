@@ -16,6 +16,7 @@
 int posX = 0;                                        //Game world X;
 int posY = 0;                                        //Game world Y;
 #define RGB(r,g,b) ((r)+((g)<<5)+((b)<<10))                //15 bit, 0-31, 5bit=r, 5bit=g, 5bit=b 
+
 //---Texture Stuff---
 #include "textures/title.c"
 #include "textures/pDownIdl.c"
@@ -35,6 +36,10 @@ int posY = 0;                                        //Game world Y;
 #include "textures/catechismusNoChange.c"
 #include "textures/catechismusChange.c"
 
+//---Audio Stuff---
+#include "audio/sound.c"
+
+#include "aiBrains.c"
 
 int lastFr=0,FPS=0;                                        //for frames per second
 int stateID=0;
@@ -58,7 +63,7 @@ void clearBackground(int r, int g, int b)
   for(y=0;y<SH;y++){ VRAM[y*GBA_SW+x]=RGB(r,g,b);}       //clear all 120x80 pixels
  }
 }
-
+//Sound stuff (IN DEVELOPMENT!!!!)
 
 
 
@@ -98,7 +103,7 @@ void buttons()                                             //buttons to press
  if(KEY_U ){P.y-=3; if(P.y<   0){ P.y=SH-9; posY+=1;} dir=2;}             //move up
  if(KEY_D ){P.y+=3; if(P.y>SH-9){ P.y=0; posY-=1;} dir=3;}             //move down
  if(KEY_A ){} 
- if(KEY_B ){} 
+ if(KEY_B ){summonDemon();} 
  if(KEY_LS){} 
  if(KEY_RS){} 
  if(KEY_ST){} 
