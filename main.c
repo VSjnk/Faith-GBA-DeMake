@@ -42,8 +42,8 @@ int posY = 0;                                        //Game world Y;
 #include "aiBrains.c"
 
 int lastFr=0,FPS=0;                                        //for frames per second
-int stateID=0;
-int dir=0;
+extern int stateID=0;
+extern int dir=0;
 
 typedef struct                                             //player
 {
@@ -102,12 +102,12 @@ void buttons()                                             //buttons to press
  if(KEY_L ){P.x-=3; if(P.x<   0){ P.x=SW-4; posX-=1;} dir=1;}             //move left
  if(KEY_U ){P.y-=3; if(P.y<   0){ P.y=SH-9; posY+=1;} dir=2;}             //move up
  if(KEY_D ){P.y+=3; if(P.y>SH-9){ P.y=0; posY-=1;} dir=3;}             //move down
- if(KEY_A ){} 
- if(KEY_B ){summonDemon();} 
+ if(KEY_A ){Fight(dir);} 
+ if(KEY_B ){summonDemon(P.x, P.y);} 
  if(KEY_LS){} 
  if(KEY_RS){} 
  if(KEY_ST){} 
- if(KEY_SL){} 
+ if(KEY_SL){stateID=4;} 
  if(dir==0 && KEY_R){drawImage(P.rx,P.ry, P.x,P.y, P.map, 0);} 
  if(dir==1 && KEY_L){mirrorImage(P.rx,P.ry, P.map, 0,P.x,P.y);}
  if(dir==2 && KEY_U){if(P.frame==1){drawImage(P.rx,P.ry, P.x,P.y, P.map, 0);}else{mirrorImage(P.rx,P.ry, P.map, 0,P.x,P.y);}}
@@ -115,11 +115,6 @@ void buttons()                                             //buttons to press
  if(!KEY_D && !KEY_L && !KEY_R && !KEY_U){if(dir!=1){drawImage(P.rx,P.ry, P.x,P.y, P.map, 0);} else{mirrorImage(P.rx,P.ry, P.map, 0,P.x,P.y);}}
 
 }
-
-
-
-
-
 
 
 void updatePlayer()
@@ -142,6 +137,13 @@ void updatePlayer()
 	
 
 }
+void dead(int SId)
+{
+stateID = SId;
+}
+
+
+
 void init()
 {
  P.x=70; P.y=35;
@@ -177,7 +179,8 @@ const int demonPositionsX[] = {60, 43, 95, 70, 55, 40};
 const int demonPositionsY[] = {40, 60, 50, 40, 50, 47};
 
 //---PLAYER-STUFF-----
-const int repeat=1;
+int repeat=1;
+
 
 
 int main()
@@ -196,29 +199,19 @@ int main()
  while(repeat) 
  { 
 
-	 if(stateID==0)
+	if(stateID==4)
 	{
-			//Title Code Goes Here.
-			drawImage(120,80, 0,0, title_Map, 0);
-			 if(KEY_ST){ stateID=1; P.map=pDownIdl_Map;} 
+	clearBackground(0,0,0);
+	if(KEY_ST){stateID=1;} 
 	}
 		
-	if(stateID==1)
-	{
-		clearBackground(0, 0, 0);
-		drawImage(120,80, 0,0, MainMenu_Map, 0);
-		if(KEY_D){T.select+=1; if(T.select>1){T.select=1;}}
-		if(KEY_U){T.select-=1; if(T.select<0){T.select=0;}}
-		if(T.select==0){drawImage(6,8, 35,42, select_Map, 0); if(KEY_A ){ stateID=2; P.map=pDownIdl_Map;} }
-		if(T.select==1){drawImage(6,8, 35,53, select_Map, 0); if(KEY_A ){ stateID=3; P.map=pDownIdl_Map;} }
-		
-	}
+	
 	
 	if(stateID==2)
 	{
 	playerLoc(posX, posY);
-    buttons();
-    updatePlayer();
+    	buttons();
+    	updatePlayer();
 	}
 	
 	if(stateID==3)
@@ -237,6 +230,23 @@ int main()
    if(D.demon==6){stateID=1; D.demon=0;}
    T.select=0;
    }
+
+	if(stateID==1)
+	{
+		clearBackground(0, 0, 0);
+		drawImage(120,80, 0,0, MainMenu_Map, 0);
+		if(KEY_D){T.select+=1; if(T.select>1){T.select=1;}}
+		if(KEY_U){T.select-=1; if(T.select<0){T.select=0;}}
+		if(T.select==0){drawImage(6,8, 35,42, select_Map, 0); if(KEY_A ){ stateID=2; P.map=pDownIdl_Map;} }
+		if(T.select==1){drawImage(6,8, 35,53, select_Map, 0); if(KEY_A ){ stateID=3; P.map=pDownIdl_Map;} }
+		
+	}
+	if(stateID==0)
+	{
+			//Title Code Goes Here.
+			drawImage(120,80, 0,0, title_Map, 0);
+			 if(KEY_ST){ stateID=1; P.map=pDownIdl_Map;} 
+	}
 
 
    
