@@ -35,6 +35,9 @@ int posY = 0;                                        //Game world Y;
 #include "textures/select.c"
 #include "textures/catechismusNoChange.c"
 #include "textures/catechismusChange.c"
+//---SFX---
+#include "audio/sound.c"
+
 
 //---Demon Stuff---
 #include "aiBrains.c"
@@ -62,6 +65,72 @@ void clearBackground(int r, int g, int b)
  }
 }
 //Sound stuff (IN DEVELOPMENT!!!!)
+u16 _soundLength[] = { 8, 131, 3, 3 };// Length of all sound in file sound.h. Sound.h has 4 variable: Sound1Data, Sound2Data, Sound3Data, Sound4Data.
+u16 _soundLengthInSec;//Length of sound
+u16 _soundPlayedInSec; //Number of second played the sound
+
+
+void PlaySound1() {
+	//Turn on sound circuit - Master sound enable and enable Sound 1-4
+	REG_SOUNDCNT_X = 0x80;
+
+	//Sound 1-4 Output level and Stereo control
+	//Full volume, enable sound 1 to both left and right
+	REG_SOUNDCNT_L = 0x1177;
+
+	// Overall: output ratio
+	REG_SOUNDCNT_H = 2;
+
+	// Configure for sound channel 1
+	REG_SOUND1CNT_L = 0x0046; //Sound 1 Sweep control //Low
+	REG_SOUND1CNT_H = 0xfAF7; //Sound 1 Length, wave duty and envelope control //High
+	REG_SOUND1CNT_X = 0xCEAD; //Sound 1 Frequency, reset and loop control //Frequency
+}
+
+//****
+//Modified from: http://belogic.com/gba/ - Direct sound
+//****
+//soundNum: 4 songs
+void PlaySoundDMA(u8 soundNum) {
+	_soundPlayedInSec = 1; // number of seconds has passed
+	_soundLengthInSec = _soundLength[soundNum - 1]; // total length in seconds of this song
+
+	//Play a mono sound at 16khz
+	//Use timer 0 as sampling rate source
+	
+	REG_SOUNDCNT_H = 0x0B0F; //0x0b0F; //enable DS A&B + FIFO reset + use timer0 + max volume to L and R
+	REG_SOUNDCNT_X = 0x0080; //turn sound chip on
+	switch (soundNum) {
+	case 1:
+		REG_DMA1SAD = (u32) __Mortis; // src
+		break;
+	case 2:
+		REG_DMA1SAD = (u32) __JoJi;
+		break;
+	case 3:REG_DMA1SAD = (u32) __TestSound;
+		break;
+	case 4:
+		REG_DMA1SAD = (u32) __MissingSong;
+		break;
+	}
+
+	//DMA1 destination
+	REG_DMA1DAD = 0x040000a0; //write to FIFO A address 
+	REG_DMA1CNT_H = 0xb600; //DMA control: DMA enabled+ start on FIFO+32bit+repeat+increment source&dest
+
+	//REG_TM0D
+	//Formula for playback frequency is: 0xFFFF-round(cpuFreq/playbackFreq) 
+	REG_TM0CNT_L =  0xFBE6; //16khz playback frequency
+	REG_TM0CNT_H = 0x0080; //enable timer
+}
+
+///Stop timer0 & DMA1
+void StopDMASound() {
+	REG_TM0CNT_H = 0; //disable timer 0
+	REG_DMA1CNT_H = 0x00; //stop DMA
+	dprint("Stop DMA Sound");
+}
+
 
 
 
@@ -104,7 +173,8 @@ void buttons()                                             //buttons to press
  if(KEY_B ){summonDemon(P.x, P.y, 0);} 
  if(KEY_LS){} 
  if(KEY_RS){} 
- if(KEY_ST){} 
+ if(KEY_ST){ PlaySoundDMA(1);
+} 
  if(KEY_SL){stateID=4;} 
  if(dir==0 && KEY_R){drawImage(P.rx,P.ry, P.x,P.y, P.map, 0);} 
  if(dir==1 && KEY_L){mirrorImage(P.rx,P.ry, P.map, 0,P.x,P.y);}
@@ -196,6 +266,9 @@ int main()
 
  while(repeat) 
  { 
+			PlaySoundDMA(1);
+
+
 
 	if(stateID==4)
 	{
@@ -238,12 +311,16 @@ int main()
 		if(T.select==0){drawImage(6,8, 35,42, select_Map, 0); if(KEY_A ){ stateID=2; P.map=pDownIdl_Map;} }
 		if(T.select==1){drawImage(6,8, 35,53, select_Map, 0); if(KEY_A ){ stateID=3; P.map=pDownIdl_Map;} }
 		
+		
+		
 	}
 	if(stateID==0)
 	{
 			//Title Code Goes Here.
 			drawImage(120,80, 0,0, title_Map, 0);
+
 			 if(KEY_ST){ stateID=1; P.map=pDownIdl_Map;} 
+			 
 	}
 
 
