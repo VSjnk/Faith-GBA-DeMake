@@ -1,3 +1,5 @@
+<h1> THIS VERSION IS NO LONGER IN DEVELOPMENT, IT IS NOW COMPILING ON DEVKITPRO</h1>
+
 <h1>Faith GBA DeMake</h1>
 <p>This is a demake of the game Faith Chapter 1 for the gameboy advanced made for my capstone project in school.</p>
 

@@ -7,11 +7,10 @@
 #define _signedunsigned signed
 #endif
 
-typedef struct _pcmsound
-{
+typedef struct _pcmsound {
 	const _signedunsigned char * pName;
 	const unsigned int nSamplingRate;
 	const unsigned long nLength;
-} PCMSOUND,* PPCMSOUND;
+} PCMSOUND, *PPCMSOUND;
 
 #endif

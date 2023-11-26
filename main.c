@@ -36,14 +36,12 @@ int posY = 0;                                        //Game world Y;
 #include "textures/catechismusNoChange.c"
 #include "textures/catechismusChange.c"
 
-//---Audio Stuff---
-#include "audio/sound.c"
-
+//---Demon Stuff---
 #include "aiBrains.c"
 
 int lastFr=0,FPS=0;                                        //for frames per second
-extern int stateID=0;
-extern int dir=0;
+int stateID=0;
+int dir=0;
 
 typedef struct                                             //player
 {
@@ -103,7 +101,7 @@ void buttons()                                             //buttons to press
  if(KEY_U ){P.y-=3; if(P.y<   0){ P.y=SH-9; posY+=1;} dir=2;}             //move up
  if(KEY_D ){P.y+=3; if(P.y>SH-9){ P.y=0; posY-=1;} dir=3;}             //move down
  if(KEY_A ){Fight(dir);} 
- if(KEY_B ){summonDemon(P.x, P.y);} 
+ if(KEY_B ){summonDemon(P.x, P.y, 0);} 
  if(KEY_LS){} 
  if(KEY_RS){} 
  if(KEY_ST){} 

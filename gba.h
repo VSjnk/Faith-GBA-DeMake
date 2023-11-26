@@ -49,13 +49,6 @@ volatile u16* Scanline=(volatile u16*)0x4000006;
 #define SOUND3INIT	    0x8000	                  //Makes the sound restart
 #define SOUND3PLAYONCE  0x4000	                  //Play sound once
 
-//#define REG_DMA1SAD     *(volatile 32*)0x40000BC
-//#define REG_DMA1SAD_L   *(volatile 16*)0x40000BC
-//#define REG_DMA1SAD_H   *(volatile 16*)0x40000BE
-//#define REG_DMA1CNT_H   *(volatile 16*)0x40000C6
-//#define REG_TM0CNT_L	*(u16*)0x4000100		//Timer 0 count value
-//#define REG_TM0CNT_H    *(u16*)0x4000102		//Timer 0 Control
-
 void PlayNote( u16 frequency, unsigned char length ){
 
 	unsigned char adjustedLength = 0xFF - length;
