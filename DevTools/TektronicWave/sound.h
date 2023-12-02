@@ -7,10 +7,11 @@
 #ifndef	TEKTRONIC_WAVE_SOUND_HEADER_FILE
 #define	TEKTRONIC_WAVE_SOUND_HEADER_FILE
 
-extern /*"C"*/ const PCMSOUND _Mortis;
-extern /*"C"*/ const PCMSOUND _JoJi;
-extern /*"C"*/ const PCMSOUND _TestSound;
-extern /*"C"*/ const PCMSOUND _MissingSong;
+extern /*"C"*/ const PCMSOUND Mortis;
+extern /*"C"*/ const PCMSOUND MainTheme;
+extern /*"C"*/ const PCMSOUND Joji;
+extern /*"C"*/ const PCMSOUND Radio;
+extern /*"C"*/ const PCMSOUND testSound;
 
 #endif
 

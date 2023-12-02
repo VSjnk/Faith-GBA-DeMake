@@ -66,6 +66,7 @@
 #include <math.h>
 //---Texture Stuff---
 #include "textures/Micheal.c"
+#include "textures/Amy.c"
 
 int playerX=0;
 int playerY=0;
@@ -118,16 +119,32 @@ void Micheal()
 	}
 }
 
+void Amy()
+{
+	//left
+	drawImage(5, 10, playerX + 9, playerY, amy_Map, 0);
+	//up
+	drawImage(5, 10, playerX, playerY + 13, amy_Map, 0);
+	//down
+	drawImage(5, 10, playerX, playerY - 13, amy_Map, 0);
+	//right
+	drawImage(5, 10, playerX - 8, playerY, amy_Map, 0);
+}
+
 
 int summonDemon(int PX, int PY, int ID)
 {
 	playerX = PX;
 	playerY = PY;
-
-	if(ID == 0)
-	{
+	switch (ID) {
+	case 1:
 		Micheal();
+		break;
+	case 2:
+		Amy();
+		break;
 	}
+
 }
 
 
