@@ -90,7 +90,7 @@ void Micheal()
 	De.frame += 1;
 	if(De.x <= playerX){De.x +=speed;}else{De.x -=speed;}
 	if(De.y <= playerY-1){De.y +=speed;}else if(De.y >= playerY+1){De.y -=speed;}
-	if(De.x == playerX && De.y == playerY){dead(4);}
+	if(De.x >= playerX-3 && De.x <= playerX+3 && De.y >= playerY-3 && De.y <= playerY+3){dead();}
 	
 	if(KEY_A)
 	{
@@ -108,7 +108,7 @@ void Micheal()
 			if(playerDir==3){speed= -1;}
 		}
 	}
-	if(De.x == 0 | De.x == 120){speed=3;}
+	if(De.x == 0 | De.x == 120 | De.y == 0 | De.y == 80){speed=3;  resetMicheal();}
 	if(De.frame == 1)
 	{
 		mirrorImage(12, 10, Micheal_Map, 0, De.x, De.y);
@@ -121,14 +121,39 @@ void Micheal()
 
 void Amy()
 {
+	int realAmy = 0;
 	//left
+	if(playerDir==0 && playerDir==realAmy && KEY_A)
+	{
+	//attacked
+	drawImage(5, 10, playerX + 9, playerY, amy_Map, 1);
+	}else{
 	drawImage(5, 10, playerX + 9, playerY, amy_Map, 0);
+	}
 	//up
+	if(playerDir==3 && playerDir==realAmy && KEY_A)
+	{
+	//attacked
+	drawImage(5, 10, playerX, playerY + 13, amy_Map, 1);
+	}else{
 	drawImage(5, 10, playerX, playerY + 13, amy_Map, 0);
+	}
 	//down
+	if(playerDir==2 && playerDir==realAmy && KEY_A)
+	{
+	//attacked
+	drawImage(5, 10, playerX, playerY - 13, amy_Map, 1);
+	}else{
 	drawImage(5, 10, playerX, playerY - 13, amy_Map, 0);
+	}
 	//right
+	if(playerDir==1 && playerDir==realAmy && KEY_A)
+	{
+	//attacked
+	drawImage(5, 10, playerX - 8, playerY, amy_Map, 1);
+	}else{
 	drawImage(5, 10, playerX - 8, playerY, amy_Map, 0);
+	}	
 }
 
 

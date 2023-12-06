@@ -45,6 +45,8 @@ int posY = 0;                                        //Game world Y;
 int lastFr=0,FPS=0;                                        //for frames per second
 int stateID=0;
 int dir=0;
+int counter;
+
 
 typedef struct                                             //player
 {
@@ -65,6 +67,7 @@ void clearBackground(int r, int g, int b)
  }
 }
 //Sound stuff (IN DEVELOPMENT!!!!)
+int _myTimer;
 u16 _soundLength[] = { 8, 46, 131, 65, 3};// Length of all sound in file sound.h. Sound.h has 4 variable: Sound1Data, Sound2Data, Sound3Data, Sound4Data.
 u16 _soundLengthInSec;//Length of sound
 u16 _soundPlayedInSec; //Number of second played the sound
@@ -170,7 +173,7 @@ void buttons()                                             //buttons to press
 {
  if(KEY_R ){P.x+=3; if(P.x>SW-4){ P.x=0; posX+=1;} dir=0;}             //move right
  if(KEY_L ){P.x-=3; if(P.x<   0){ P.x=SW-4; posX-=1;} dir=1;}             //move left
- if(KEY_U ){P.y-=3; if(P.y<   0){ P.y=SH-9; posY+=1;} dir=2;}             //move up
+ if(KEY_U ){P.y-=3; if(P.y<   0){ P.y=SH-9; posY+=1;} dir=2; counter += 1;}             //move up
  if(KEY_D ){P.y+=3; if(P.y>SH-9){ P.y=0; posY-=1;} dir=3;}             //move down
  if(KEY_A ){Fight(dir);} 
  if(KEY_B ){summonDemon(P.x, P.y, 2);} 
@@ -183,7 +186,12 @@ void buttons()                                             //buttons to press
  if(dir==2 && KEY_U){if(P.frame==1){drawImage(P.rx,P.ry, P.x,P.y, P.map, 0);}else{mirrorImage(P.rx,P.ry, P.map, 0,P.x,P.y);}}
  if(dir==3 && KEY_D){if(P.frame==1){drawImage(P.rx,P.ry, P.x,P.y, P.map, 0);}else{mirrorImage(P.rx,P.ry, P.map, 0,P.x,P.y);}}
  if(!KEY_D && !KEY_L && !KEY_R && !KEY_U){if(dir!=1){drawImage(P.rx,P.ry, P.x,P.y, P.map, 0);} else{mirrorImage(P.rx,P.ry, P.map, 0,P.x,P.y);}}
+ if(counter>=45){summonDemon(P.x, P.y, 1);}
+}
 
+void resetMicheal()
+{
+	counter=0;
 }
 
 
@@ -207,9 +215,9 @@ void updatePlayer()
 	
 
 }
-void dead(int SId)
+void dead()
 {
-	stateID = SId;
+	stateID = 4;
 }
 
 
