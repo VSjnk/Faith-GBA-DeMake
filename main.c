@@ -38,6 +38,7 @@ int posY = 0;                                        //Game world Y;
 #include "textures/catechismusNoChange.c"
 #include "textures/catechismusChange.c"
 #include "textures/mortis.c"
+#include "levelAssets/Key.c"
 //---SFX---
 #include "audio/sound.c"
 
@@ -305,6 +306,11 @@ switch(stateID){
 	playerLoc(posX, posY);
     	buttons();
     	updatePlayer();
+		if(posX==3 && posY==6 && P.x>=40)
+		{
+			posX=30;
+			drawImage(3, 7, 0, 0, key, 0);
+		}
 	break;
 	
 	case 3:
