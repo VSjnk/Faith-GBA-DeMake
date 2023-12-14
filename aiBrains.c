@@ -90,7 +90,7 @@ void Micheal()
 	De.frame += 1;
 	if(De.x <= playerX){De.x +=speed;}else{De.x -=speed;}
 	if(De.y <= playerY-1){De.y +=speed;}else if(De.y >= playerY+1){De.y -=speed;}
-	if(De.x >= playerX-3 && De.x <= playerX+3 && De.y >= playerY-3 && De.y <= playerY+3){dead();}
+	if(De.x >= playerX-3 && De.x <= playerX+3 && De.y >= playerY-3 && De.y <= playerY+3){dead(); De.x=0; De.y=0;}
 	
 	if(KEY_A)
 	{

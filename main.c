@@ -16,6 +16,8 @@
 int posX = 0;                                        //Game world X;
 int posY = 0;                                        //Game world Y;
 #define RGB(r,g,b) ((r)+((g)<<5)+((b)<<10))                //15 bit, 0-31, 5bit=r, 5bit=g, 5bit=b 
+//---Debug Textures---
+#include "textures/Linear_RGB_color_wheel.c"
 
 //---Texture Stuff---
 #include "textures/title.c"
@@ -35,6 +37,7 @@ int posY = 0;                                        //Game world Y;
 #include "textures/select.c"
 #include "textures/catechismusNoChange.c"
 #include "textures/catechismusChange.c"
+#include "textures/mortis.c"
 //---SFX---
 #include "audio/sound.c"
 
@@ -180,7 +183,7 @@ void buttons()                                             //buttons to press
  if(KEY_LS){} 
  if(KEY_RS){} 
  if(KEY_ST){} 
- if(KEY_SL){stateID=4;} 
+ if(KEY_SL){dead();} 
  if(dir==0 && KEY_R){drawImage(P.rx,P.ry, P.x,P.y, P.map, 0);} 
  if(dir==1 && KEY_L){mirrorImage(P.rx,P.ry, P.map, 0,P.x,P.y);}
  if(dir==2 && KEY_U){if(P.frame==1){drawImage(P.rx,P.ry, P.x,P.y, P.map, 0);}else{mirrorImage(P.rx,P.ry, P.map, 0,P.x,P.y);}}
@@ -217,6 +220,7 @@ void updatePlayer()
 }
 void dead()
 {
+	StopDMASound();
 	stateID = 4;
 }
 
@@ -286,15 +290,18 @@ switch(stateID){
 	
 	case 1:
 		PlaySoundDMA(2);
+		
 		clearBackground(0, 0, 0);
 		drawImage(120,80, 0,0, MainMenu_Map, 0);
 		if(KEY_D){T.select+=1; if(T.select>1){T.select=1;}}
 		if(KEY_U){T.select-=1; if(T.select<0){T.select=0;}}
-		if(T.select==0){drawImage(6,8, 35,42, select_Map, 0); if(KEY_A ){ stateID=2; P.map=pDownIdl_Map;} }
-		if(T.select==1){drawImage(6,8, 35,53, select_Map, 0); if(KEY_A ){ stateID=3; P.map=pDownIdl_Map;} }
+		if(T.select==0){drawImage(6,8, 35,42, select_Map, 0); if(KEY_A ){ stateID=2; P.map=pDownIdl_Map; StopDMASound();} }
+		if(T.select==1){drawImage(6,8, 35,53, select_Map, 0); if(KEY_A ){ stateID=3; P.map=pDownIdl_Map; StopDMASound();} }
+		if(KEY_B){drawImage(80,80, 0,0, RGBwheel_Map, 0);} //Debug Image
 	break;
 	
 	case 2:
+	PlaySoundDMA(4);
 	playerLoc(posX, posY);
     	buttons();
     	updatePlayer();
@@ -321,6 +328,7 @@ switch(stateID){
    //mortis
 		PlaySoundDMA(1);
    		clearBackground(0,0,0);
+		drawImage(120,80, 0,0, Mortis_Map, 0);
 		if(KEY_ST){stateID=1;} 
 	break;
 }
