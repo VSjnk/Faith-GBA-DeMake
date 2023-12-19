@@ -126,33 +126,33 @@ void Amy()
 	if(playerDir==0 && playerDir==realAmy && KEY_A)
 	{
 	//attacked
-	drawImage(5, 10, playerX + 9, playerY, amy_Map, 1);
+		drawImage(5, 10, playerX + 9, playerY, amy_Map, 1);
 	}else{
-	drawImage(5, 10, playerX + 9, playerY, amy_Map, 0);
+		drawImage(5, 10, playerX + 9, playerY, amy_Map, 0);
 	}
 	//up
 	if(playerDir==3 && playerDir==realAmy && KEY_A)
 	{
 	//attacked
-	drawImage(5, 10, playerX, playerY + 13, amy_Map, 1);
+		drawImage(5, 10, playerX, playerY + 13, amy_Map, 1);
 	}else{
-	drawImage(5, 10, playerX, playerY + 13, amy_Map, 0);
+		drawImage(5, 10, playerX, playerY + 13, amy_Map, 0);
 	}
 	//down
 	if(playerDir==2 && playerDir==realAmy && KEY_A)
 	{
 	//attacked
-	drawImage(5, 10, playerX, playerY - 13, amy_Map, 1);
+		drawImage(5, 10, playerX, playerY - 13, amy_Map, 1);
 	}else{
-	drawImage(5, 10, playerX, playerY - 13, amy_Map, 0);
+		drawImage(5, 10, playerX, playerY - 13, amy_Map, 0);
 	}
 	//right
 	if(playerDir==1 && playerDir==realAmy && KEY_A)
 	{
 	//attacked
-	drawImage(5, 10, playerX - 8, playerY, amy_Map, 1);
+		drawImage(5, 10, playerX - 8, playerY, amy_Map, 1);
 	}else{
-	drawImage(5, 10, playerX - 8, playerY, amy_Map, 0);
+		drawImage(5, 10, playerX - 8, playerY, amy_Map, 0);
 	}	
 }
 

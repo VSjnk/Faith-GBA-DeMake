@@ -314,11 +314,11 @@ switch(stateID){
 	break;
 	
 	case 3:
-	PlaySoundDMA(2);
-   drawImage(120, 80, 0, 0, Catechrismus_Map, 0);
-   if(P.y<   34){ P.y=   34;}
-   buttons();
-   updatePlayer();
+		PlaySoundDMA(2);
+		drawImage(120, 80, 0, 0, Catechrismus_Map, 0);
+		if(P.y<   34){ P.y=   34;}
+		buttons();
+		updatePlayer();
 	if (D.demon >= 0 && D.demon <= 2) {
 		apple(demonPositionsX[D.demon], demonPositionsY[D.demon]);
 	}
