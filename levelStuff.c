@@ -7,6 +7,8 @@
 #include "levelAssets/keyOutside.c"
 #include "levelAssets/House.c"
 #include "levelAssets/InsideKey.c"
+//#include "levelAssets/HouseInside/X1Y1.c"
+
 
 int playerLoc(int X, int Y) {
 	clearBackground(0, 0, 0);
@@ -28,6 +30,10 @@ int playerLoc(int X, int Y) {
 		break;
 	}
 	if(X==30)
+	{
+	drawImage(120, 80, 0, 0, InsideKey_Map, 0);
+	}
+	if(X==40 && Y==40)
 	{
 	drawImage(120, 80, 0, 0, InsideKey_Map, 0);
 	}
