@@ -1,4 +1,4 @@
-const u16 key[21] = {
+const u16 key_Map[21] = {
     // ███
     // █∙█
     // ███

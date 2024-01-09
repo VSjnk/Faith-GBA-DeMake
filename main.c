@@ -39,6 +39,11 @@ int posY = 0;                                        //Game world Y;
 #include "textures/catechismusChange.c"
 #include "textures/mortis.c"
 #include "levelAssets/Key.c"
+#include "End-Demo.c"
+#include "logos/AirDolf.c"
+#include "logos/VSink.c"
+
+
 //---SFX---
 #include "audio/sound.c"
 
@@ -46,15 +51,18 @@ int posY = 0;                                        //Game world Y;
 //---Demon Stuff---
 #include "aiBrains.c"
 
+int titleLoad;
 int lastFr=0,FPS=0;                                        //for frames per second
 int stateID=0;
 int dir=0;
 int counter;
-
+int haskey = 0;
 
 typedef struct                                             //player
 {
  int x,y;
+ int colXmin, colXmax;
+ int colYmin, colYmax;
  int posX, posY;
  int frame;
  const u16* map;
@@ -72,7 +80,7 @@ void clearBackground(int r, int g, int b)
 }
 //Sound stuff (IN DEVELOPMENT!!!!)
 int _myTimer;
-u16 _soundLength[] = { 8, 46, 131, 65, 3};// Length of all sound in file sound.h. Sound.h has 4 variable: Sound1Data, Sound2Data, Sound3Data, Sound4Data.
+u16 _soundLength[] = { 8, 46, 131, 65, 3, 0, 0, 0};// Length of all sound in file sound.h. Sound.h has 4 variable: Sound1Data, Sound2Data, Sound3Data, Sound4Data.
 u16 _soundLengthInSec;//Length of sound
 u16 _soundPlayedInSec; //Number of second played the sound
 
@@ -114,14 +122,25 @@ void PlaySoundDMA(u8 soundNum) {
 	case 2:
 		REG_DMA1SAD = (u32) _MainTheme;
 		break;
-	case 3:REG_DMA1SAD = (u32) _Joji;
+	case 3:REG_DMA1SAD = (u32) _Michael;
 		break;
 	case 4:
-		REG_DMA1SAD = (u32) _Radio;
+		REG_DMA1SAD = (u32) _House;
 		break;
 	case 5:
-		REG_DMA1SAD = (u32) _testSound;
+		REG_DMA1SAD = (u32) _locked;
 		break;
+	case 6:
+		REG_DMA1SAD = (u32) _Forest;
+		break;
+	case 7:
+		REG_DMA1SAD = (u32) _End_Demo;
+		break;
+	case 8:
+		REG_DMA1SAD = (u32) _Joji;
+		break;
+		
+	dPrintValue(REG_SOUND1CNT_X);
 	}
 
 	//DMA1 destination
@@ -171,16 +190,22 @@ void mirrorImage(int w, int h, const u16* map, int to, int xo, int yo) {
     }
 }
 
-
+int setColision(int minX, int minY, int maxX, int maxY)
+{
+	P.colXmin = minX;
+	P.colXmax = maxX;
+	P.colYmin = minY;
+	P.colYmax = maxY;
+}
 
 void buttons()                                             //buttons to press
 {
- if(KEY_R ){P.x+=3; if(P.x>SW-4){ P.x=0; posX+=1;} dir=0;}             //move right
- if(KEY_L ){P.x-=3; if(P.x<   0){ P.x=SW-4; posX-=1;} dir=1;}             //move left
- if(KEY_U ){P.y-=3; if(P.y<   0){ P.y=SH-9; posY+=1;} dir=2; counter += 1;}             //move up
- if(KEY_D ){P.y+=3; if(P.y>SH-9){ P.y=0; posY-=1;} dir=3;}             //move down
+ if(KEY_R ){if(P.colXmax <= P.x){P.x-=3;} P.x+=3; if(P.x>SW-9){ P.x=0; posX+=1; } dir=0;}             //move right
+ if(KEY_L ){if(P.colXmin >= P.x){P.x+=3;} P.x-=3; if(P.x<   5){ P.x=SW-4; posX-=1;} dir=1;}             //move left
+ if(KEY_U ){if(P.colYmin >= P.y){P.y+=3;} P.y-=3; if(P.y<   5){ P.y=SH-9; posY+=1;} dir=2; counter += 1;}             //move up
+ if(KEY_D ){if(P.colYmax <= P.y){P.y+=3;} P.y+=3; if(P.y>SH-14){ P.y=0; posY-=1;} dir=3;}             //move down
  if(KEY_A ){Fight(dir);} 
- if(KEY_B ){summonDemon(P.x, P.y, 2);} 
+ if(KEY_B ){posX = 30;} 
  if(KEY_LS){} 
  if(KEY_RS){} 
  if(KEY_ST){} 
@@ -258,6 +283,14 @@ void apple(int x, int y)
 	drawImage(4,5, x,y, apple_Map, 0);
 }
 
+int key(int x, int y)
+{
+	if(haskey == 0)
+	{
+		if(P.x>x-4 && P.x<x && P.y>y-10 && P.y<y+6){haskey = 1; return;}
+		drawImage(3, 7, x,y, key_Map, 0);
+	}
+}
 
 const int demonPositionsX[] = {60, 43, 95, 70, 55, 40};
 const int demonPositionsY[] = {40, 60, 50, 40, 50, 47};
@@ -285,14 +318,28 @@ int main()
 
 switch(stateID){
 	case 0:
+	PlaySoundDMA(6);
+	if(KEY_A){titleLoad += 1;}
+	switch(titleLoad){
+		case 0:
+		drawImage(120,80, 0,0, AirDolf, 0);
+		break;
+		case 1:
+		drawImage(120,80, 0,0, VSink, 0);
+		break;
+		case 2:
 		drawImage(120,80, 0,0, title_Map, 0);
-		if(KEY_ST){ stateID=1; P.map=pDownIdl_Map;}
+		break;
+		case 3:
+		StopDMASound();
+		stateID = 1;
+		break;
+	}
 	break;
 	
 	case 1:
 		PlaySoundDMA(2);
-		
-		clearBackground(0, 0, 0);
+		setColision(0, 0, 120, 80);
 		drawImage(120,80, 0,0, MainMenu_Map, 0);
 		if(KEY_D){T.select+=1; if(T.select>1){T.select=1;}}
 		if(KEY_U){T.select-=1; if(T.select<0){T.select=0;}}
@@ -302,15 +349,54 @@ switch(stateID){
 	break;
 	
 	case 2:
-	PlaySoundDMA(4);
+	PlaySoundDMA(6);	
 	playerLoc(posX, posY);
     	buttons();
     	updatePlayer();
-		if(posX==3 && posY==6 && P.x>=40)
+		if(posX==3 && posY==6 && P.x>=53 && P.x<=60 && P.y>=53)
 		{
+			//outside keyS
 			posX=30;
-			drawImage(3, 7, 0, 0, key, 0);
 		}
+		if(posX==30 && P.x<=63 && P.y<=64)
+		{
+			//inside key
+			posX = 3;
+			posY = 6;
+		}
+		
+		if(posX==29)
+		{
+			posX = 3;
+			P.x = 60;
+			P.y = 40;
+		}
+		
+		if(posX==0 && posY==6 && P.x<=60 && P.x>=48 && P.y<=57)
+		{
+			//House outside
+			if(haskey == 1)
+			{
+			posX=40;
+			posY=40;
+			}
+			else
+			{
+				PlaySoundDMA(5);
+			}
+		}
+		if(posX==39)
+		{
+			posX = 0;
+			posY = 6;
+			P.x = 47;
+			P.y = 55;
+		}
+	if(posX==41 || posY == 41)
+	{
+		
+	stateID = 5;
+	}
 	break;
 	
 	case 3:
@@ -333,15 +419,20 @@ switch(stateID){
    case 4:
    //mortis
 		PlaySoundDMA(1);
-   		clearBackground(0,0,0);
 		drawImage(120,80, 0,0, Mortis_Map, 0);
 		if(KEY_ST){stateID=1;} 
+	break;
+	
+	case 5:
+	//end of demo
+	PlaySoundDMA(7);
+	drawImage(120,80, 0,0, Ending_Map, 0);
 	break;
 }
 
    
    //swap buffers---------------------------------------------------------------
-   while(*Scanline<120){}	                                         //wait all scanlines 
+   while(*Scanline<120){}	                         //wait all scanlines 
    if  ( DISPCNT&BACKB){ DISPCNT &= ~BACKB; VRAM=(u16*)VRAM_B;}      //back  buffer
    else{                 DISPCNT |=  BACKB; VRAM=(u16*)VRAM_F;}      //front buffer  
   }

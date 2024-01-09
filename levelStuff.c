@@ -7,34 +7,76 @@
 #include "levelAssets/keyOutside.c"
 #include "levelAssets/House.c"
 #include "levelAssets/InsideKey.c"
-//#include "levelAssets/HouseInside/X1Y1.c"
+#include "levelAssets/HouseInside/X1Y1.c"
+#include "levelAssets/outsidePreset.c"
+#include "levelAssets/outsidePreset2.c"
+
+
 
 
 int playerLoc(int X, int Y) {
-	clearBackground(0, 0, 0);
+	
+int out = 1;	
+	
+	
+	
 	switch(Y)
 	{
 		case 0:
-		drawImage(120, 15, 0, 55, road_Map, 0);
+		drawImage(120, 80, 0, 0, road_Map, 0);
+		setColision(0, 0, 120, 81);
+		out = 0;
 		break;
 		
 		case 6:
 		if(X == 0)
 		{
 		drawImage(120, 80, 0, 0, House_Map, 0);
+		setColision(20, 0, 120, 80);
+		out = 0;
 		}
 		if(X == 3)
 		{
+		out = 0;
 		drawImage(120, 80, 0, 0, keyOutside_Map, 0);
+		setColision(20, 0, 120, 80);
 		}
 		break;
 	}
+	
 	if(X==30)
 	{
+	out = 0;
 	drawImage(120, 80, 0, 0, InsideKey_Map, 0);
+	setColision(46, 24, 67, 57);
+	key(64, 32);
 	}
-	if(X==40 && Y==40)
+	if(X==40)
 	{
-	drawImage(120, 80, 0, 0, InsideKey_Map, 0);
+	out = 0;
+	drawImage(120, 80, 0, 0, X1Y1, 0);
+	setColision(0, 0, 120, 80);
+	}
+	
+	if(out==1)
+	{
+	drawImage(120, 80, 0, 0, Outside_Map, 0);
+	
+		if(Y != 5)
+		{
+		setColision(42, 0, 75, 81);
+		}
+		else
+		{
+		if(X<=2)
+		{
+		drawImage(60, 30, 60, 15, outsidePath_Map, 0);
+		}
+		if(X>=1)
+		{
+		drawImage(60, 30, 0, 15, outsidePath_Map, 0);
+		}
+		setColision(0, 0, 120, 81);
+		}
 	}
 }
