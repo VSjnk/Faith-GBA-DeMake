@@ -51,6 +51,7 @@ int posY = 0;                                        //Game world Y;
 //---Demon Stuff---
 #include "aiBrains.c"
 
+int sound = 6;
 int titleLoad;
 int lastFr=0,FPS=0;                                        //for frames per second
 int stateID=0;
@@ -137,7 +138,10 @@ void PlaySoundDMA(u8 soundNum) {
 		REG_DMA1SAD = (u32) _End_Demo;
 		break;
 	case 8:
-		REG_DMA1SAD = (u32) _Joji;
+		REG_DMA1SAD = (u32) _Start_Demo;
+		break;
+	case 9:
+		REG_DMA1SAD = (u32) _Radio;
 		break;
 		
 	dPrintValue(REG_SOUND1CNT_X);
@@ -198,6 +202,21 @@ int setColision(int minX, int minY, int maxX, int maxY)
 	P.colYmax = maxY;
 }
 
+int Speak = 0;
+int testFor = 1;
+
+void resetMicheal()
+{
+
+	sound = 6; 
+	counter=0;
+	sound = 6; 
+	testFor = 1;
+	Speak = 0;
+	StopDMASound();
+	sound = 6;
+}
+
 void buttons()                                             //buttons to press
 {
  if(KEY_R ){if(P.colXmax <= P.x){P.x-=3;} P.x+=3; if(P.x>SW-9){ P.x=0; posX+=1; } dir=0;}             //move right
@@ -215,13 +234,14 @@ void buttons()                                             //buttons to press
  if(dir==2 && KEY_U){if(P.frame==1){drawImage(P.rx,P.ry, P.x,P.y, P.map, 0);}else{mirrorImage(P.rx,P.ry, P.map, 0,P.x,P.y);}}
  if(dir==3 && KEY_D){if(P.frame==1){drawImage(P.rx,P.ry, P.x,P.y, P.map, 0);}else{mirrorImage(P.rx,P.ry, P.map, 0,P.x,P.y);}}
  if(!KEY_D && !KEY_L && !KEY_R && !KEY_U){if(dir!=1){drawImage(P.rx,P.ry, P.x,P.y, P.map, 0);} else{mirrorImage(P.rx,P.ry, P.map, 0,P.x,P.y);}}
- if(counter>=45){summonDemon(P.x, P.y, 1);}
+ if(counter>=45 && posX != 40 | posX != 30){summonDemon(P.x, P.y, 1); Speak = 1;  sound = 3;}
+ if(Speak == 1 && testFor == 1){ StopDMASound();  Speak = 0; testFor = 0;}
 }
 
-void resetMicheal()
-{
-	counter=0;
-}
+
+
+
+
 
 
 void updatePlayer()
@@ -318,7 +338,7 @@ int main()
 
 switch(stateID){
 	case 0:
-	PlaySoundDMA(6);
+	PlaySoundDMA(7);
 	if(KEY_A){titleLoad += 1;}
 	switch(titleLoad){
 		case 0:
@@ -349,40 +369,39 @@ switch(stateID){
 	break;
 	
 	case 2:
-	PlaySoundDMA(6);	
+	PlaySoundDMA(sound);	
 	playerLoc(posX, posY);
     	buttons();
     	updatePlayer();
-		if(posX==3 && posY==6 && P.x>=53 && P.x<=60 && P.y>=53)
+		if(posX==3 && posY==6 && P.x>=53 && P.x<=60 && P.y>=49)
 		{
-			//outside keyS
+			//outside key
 			posX=30;
 		}
-		if(posX==30 && P.x<=63 && P.y<=64)
+		if(posX==30 && P.x<=55 && P.y>=62)
 		{
 			//inside key
 			posX = 3;
 			posY = 6;
-		}
-		
-		if(posX==29)
-		{
-			posX = 3;
 			P.x = 60;
-			P.y = 40;
+			P.y = 50;
 		}
-		
-		if(posX==0 && posY==6 && P.x<=60 && P.x>=48 && P.y<=57)
+
+		if(posX==0 && posY==6 && P.x<=60 && P.x>=48 && P.y<=54)
 		{
 			//House outside
 			if(haskey == 1)
 			{
+			StopDMASound();
+			sound = 4; 
 			posX=40;
 			posY=40;
 			}
 			else
 			{
-				PlaySoundDMA(5);
+			StopDMASound();
+			P.y = 65;
+			sound = 5; 
 			}
 		}
 		if(posX==39)
@@ -394,7 +413,7 @@ switch(stateID){
 		}
 	if(posX==41 || posY == 41)
 	{
-		
+	StopDMASound();
 	stateID = 5;
 	}
 	break;
@@ -425,7 +444,7 @@ switch(stateID){
 	
 	case 5:
 	//end of demo
-	PlaySoundDMA(7);
+	PlaySoundDMA(8);
 	drawImage(120,80, 0,0, Ending_Map, 0);
 	break;
 }

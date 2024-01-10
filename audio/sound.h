@@ -14,7 +14,8 @@ extern /*"C"*/ const PCMSOUND House;
 extern /*"C"*/ const PCMSOUND locked;
 extern /*"C"*/ const PCMSOUND Forest;
 extern /*"C"*/ const PCMSOUND End_Demo;
-extern /*"C"*/ const PCMSOUND Joji;
+extern /*"C"*/ const PCMSOUND Start_Demo;
+extern /*"C"*/ const PCMSOUND Radio;
 
 #endif
 

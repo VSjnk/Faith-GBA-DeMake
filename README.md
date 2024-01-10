@@ -1,5 +1,3 @@
-<h1> THIS VERSION IS NO LONGER IN DEVELOPMENT, IT IS NOW COMPILING ON DEVKITPRO</h1>
-
 <h1>Faith GBA DeMake</h1>
 <p>This is a demake of the game Faith Chapter 1 for the gameboy advanced made for my capstone project in school.</p>
 
@@ -15,3 +13,6 @@
 
 <h1>What is the "DevTools" Folder?</h1>
 <p>That folder is all of the tools I've used with this program for creating assets for the game. /n I may change out what I use, but everything I'm testing is there.</p>
+
+<h1>Why arn't I using DevKitPro?</h1>
+<p>Simple! I'm an idiot!  What I mean by that is I didn't do enough research in compilers, because DevKitAdv is so goddamn old, It's older than me! this compiler also lacks features I had to maually put together myself with Duct-Tape and whats left of my hopes and dreams. I will finish this game in the future (Bring it out of demo) but chapters 2 and 3 (if I every make them) will be compiled with DevKitPro.</p>
