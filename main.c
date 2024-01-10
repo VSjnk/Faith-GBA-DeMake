@@ -338,7 +338,7 @@ int main()
 
 switch(stateID){
 	case 0:
-	PlaySoundDMA(7);
+	PlaySoundDMA(8);
 	if(KEY_A){titleLoad += 1;}
 	switch(titleLoad){
 		case 0:
@@ -373,7 +373,7 @@ switch(stateID){
 	playerLoc(posX, posY);
     	buttons();
     	updatePlayer();
-		if(posX==3 && posY==6 && P.x>=53 && P.x<=60 && P.y>=49)
+		if(posX==3 && posY==6 && P.x>=53 && P.x<=60 && P.y<=49)
 		{
 			//outside key
 			posX=30;
@@ -383,7 +383,7 @@ switch(stateID){
 			//inside key
 			posX = 3;
 			posY = 6;
-			P.x = 60;
+			P.x = 50;
 			P.y = 50;
 		}
 
@@ -404,14 +404,14 @@ switch(stateID){
 			sound = 5; 
 			}
 		}
-		if(posX==39)
+		if(posY==39)
 		{
 			posX = 0;
 			posY = 6;
 			P.x = 47;
 			P.y = 55;
 		}
-	if(posX==41 || posY == 41)
+	if(posX==39 || posY == 41)
 	{
 	StopDMASound();
 	stateID = 5;
@@ -444,7 +444,7 @@ switch(stateID){
 	
 	case 5:
 	//end of demo
-	PlaySoundDMA(8);
+	PlaySoundDMA(7);
 	drawImage(120,80, 0,0, Ending_Map, 0);
 	break;
 }
