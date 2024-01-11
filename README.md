@@ -3,7 +3,7 @@
 
 <h2>How to build</h2>
 
-<h3>Windows only</h3>h3>
+<h3>Windows only</h3>
 <p>run the "make.bat" file, also make sure you have devkitadv installed inside the root of this folder.</p>
 
 <h2>Why did I make this?</h2>
