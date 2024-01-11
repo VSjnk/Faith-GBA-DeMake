@@ -6,6 +6,8 @@
 <h3>Windows only</h3>
 <p>run the "make.bat" file, also make sure you have devkitadv installed inside the root of this folder.</p>
 
+<h3>I know that linux has support for DevKitAdv, but I struggled enough with getting it working on windows.</h3>
+
 <h2>Why did I make this?</h2>
 <p>This is my Career 11 capstone project, where I (a spagetti code programer) have decided to re-create FAITH: Chapter 1 for the GameBoy Advanced!</p>
 
