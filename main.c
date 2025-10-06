@@ -54,10 +54,11 @@ int posY = 0;                                        //Game world Y;
 int sound = 6;
 int titleLoad;
 int lastFr=0,FPS=0;                                        //for frames per second
-int stateID=0;
+int stateID = 2;
 int dir=0;
 int counter;
 int haskey = 0;
+int chased = 0;
 
 typedef struct                                             //player
 {
@@ -69,6 +70,14 @@ typedef struct                                             //player
  const u16* map;
  int rx,ry;
 }Player; Player P;
+
+void swapBuffers()
+{
+   //swap buffers---------------------------------------------------------------
+   while(*Scanline<120){}	                         //wait all scanlines 
+   if  ( DISPCNT&BACKB){ DISPCNT &= ~BACKB; VRAM=(u16*)VRAM_B;}      //back  buffer
+   else{                 DISPCNT |=  BACKB; VRAM=(u16*)VRAM_F;}      //front buffer  
+}
 
 
 
@@ -128,6 +137,7 @@ void PlaySoundDMA(u8 soundNum) {
 	case 4:
 		REG_DMA1SAD = (u32) _House;
 		break;
+		
 	case 5:
 		REG_DMA1SAD = (u32) _locked;
 		break;
@@ -207,14 +217,13 @@ int testFor = 1;
 
 void resetMicheal()
 {
-
-	sound = 6; 
 	counter=0;
-	sound = 6; 
 	testFor = 1;
 	Speak = 0;
 	StopDMASound();
 	sound = 6;
+	PlaySoundDMA(6);
+
 }
 
 void buttons()                                             //buttons to press
@@ -224,7 +233,7 @@ void buttons()                                             //buttons to press
  if(KEY_U ){if(P.colYmin >= P.y){P.y+=3;} P.y-=3; if(P.y<   5){ P.y=SH-9; posY+=1;} dir=2; counter += 1;}             //move up
  if(KEY_D ){if(P.colYmax <= P.y){P.y+=3;} P.y+=3; if(P.y>SH-14){ P.y=0; posY-=1;} dir=3;}             //move down
  if(KEY_A ){Fight(dir);} 
- if(KEY_B ){posX = 30;} 
+ //if(KEY_B ){posX = 30;} 
  if(KEY_LS){} 
  if(KEY_RS){} 
  if(KEY_ST){} 
@@ -234,8 +243,9 @@ void buttons()                                             //buttons to press
  if(dir==2 && KEY_U){if(P.frame==1){drawImage(P.rx,P.ry, P.x,P.y, P.map, 0);}else{mirrorImage(P.rx,P.ry, P.map, 0,P.x,P.y);}}
  if(dir==3 && KEY_D){if(P.frame==1){drawImage(P.rx,P.ry, P.x,P.y, P.map, 0);}else{mirrorImage(P.rx,P.ry, P.map, 0,P.x,P.y);}}
  if(!KEY_D && !KEY_L && !KEY_R && !KEY_U){if(dir!=1){drawImage(P.rx,P.ry, P.x,P.y, P.map, 0);} else{mirrorImage(P.rx,P.ry, P.map, 0,P.x,P.y);}}
- if(counter>=45 && posX != 40 | posX != 30){summonDemon(P.x, P.y, 1); Speak = 1;  sound = 3;}
- if(Speak == 1 && testFor == 1){ StopDMASound();  Speak = 0; testFor = 0;}
+ //there is a problemn here, in which the code is calling the sound command and overriding the other sound variable.
+ if(counter>=45 && posX != 40 | posX != 30){summonDemon(P.x, P.y, 1); if (chased == 0){Speak = 1;  sound = 3; chased = 1;}} else if(chased == 1) {chased = 0;}
+ if(Speak == 1 && testFor == 1){StopDMASound();  Speak = 0; testFor = 0;}
 }
 
 
@@ -265,9 +275,12 @@ void updatePlayer()
 
 }
 void dead()
-{
+{	
+	chased = 0;
+	resetMicheal();
 	StopDMASound();
 	stateID = 4;
+	PlaySoundDMA(sound);
 }
 
 
@@ -308,12 +321,14 @@ int key(int x, int y)
 	if(haskey == 0)
 	{
 		if(P.x>x-4 && P.x<x && P.y>y-10 && P.y<y+6){haskey = 1; return;}
-		drawImage(3, 7, x,y, key_Map, 0);
+		drawImage(3, 7, 0,y, key_Map, 0);
 	}
 }
 
 const int demonPositionsX[] = {60, 43, 95, 70, 55, 40};
 const int demonPositionsY[] = {40, 60, 50, 40, 50, 47};
+
+
 
 //---PLAYER-STUFF-----
 int repeat=1;
@@ -333,31 +348,39 @@ int main()
   
  init();                                                             //init game variables
 
- while(repeat) 
- {
-
-switch(stateID){
-	case 0:
-	PlaySoundDMA(8);
-	if(KEY_A){titleLoad += 1;}
-	switch(titleLoad){
-		case 0:
-		drawImage(120,80, 0,0, AirDolf, 0);
-		break;
-		case 1:
-		drawImage(120,80, 0,0, VSink, 0);
-		break;
-		case 2:
-		drawImage(120,80, 0,0, title_Map, 0);
-		break;
-		case 3:
-		StopDMASound();
-		stateID = 1;
-		break;
-	}
-	break;
+while(repeat) 
+{
 	
-	case 1:
+	//Intro
+	while(stateID == 0)
+	{
+		PlaySoundDMA(8);
+		if(KEY_A){titleLoad += 1;}
+		switch(titleLoad){
+			case 0:
+			drawImage(120,80, 0,0, AirDolf, 0);
+			break;
+			case 1:
+			drawImage(120,80, 0,0, VSink, 0);
+			break;
+			case 2:
+			drawImage(120,80, 0,0, title_Map, 0);
+			break;
+			case 3:
+			StopDMASound();
+			stateID = 1;
+			break;
+		}
+		if (titleLoad > 3)
+		{
+			stateID = 1;
+		}
+		swapBuffers();
+	}
+	//Main Menu
+	while(stateID == 1)
+	{
+
 		PlaySoundDMA(2);
 		setColision(0, 0, 120, 80);
 		drawImage(120,80, 0,0, MainMenu_Map, 0);
@@ -366,18 +389,22 @@ switch(stateID){
 		if(T.select==0){drawImage(6,8, 35,42, select_Map, 0); if(KEY_A ){ stateID=2; P.map=pDownIdl_Map; StopDMASound();} }
 		if(T.select==1){drawImage(6,8, 35,53, select_Map, 0); if(KEY_A ){ stateID=3; P.map=pDownIdl_Map; StopDMASound();} }
 		if(KEY_B){drawImage(80,80, 0,0, RGBwheel_Map, 0);} //Debug Image
-	break;
-	
-	case 2:
-	PlaySoundDMA(sound);	
-	playerLoc(posX, posY);
-    	buttons();
-    	updatePlayer();
+		swapBuffers();
+	}
+	//In Game
+	while(stateID == 2)
+	{	
+		playerLoc(posX, posY);
+		drawImage(4,5, 60,chased, apple_Map, 0);
+		buttons();
+		PlaySoundDMA(sound);
+		updatePlayer();
 		if(posX==3 && posY==6 && P.x>=53 && P.x<=60 && P.y<=49)
 		{
 			//outside key
 			posX=30;
 		}
+		
 		if(posX==30 && P.x<=55 && P.y>=62)
 		{
 			//inside key
@@ -396,14 +423,17 @@ switch(stateID){
 			sound = 4; 
 			posX=40;
 			posY=40;
+			PlaySoundDMA(sound);
 			}
 			else
 			{
 			StopDMASound();
 			P.y = 65;
 			sound = 5; 
+			PlaySoundDMA(sound);
 			}
 		}
+		
 		if(posY==39)
 		{
 			posX = 0;
@@ -411,50 +441,48 @@ switch(stateID){
 			P.x = 47;
 			P.y = 55;
 		}
-	if(posX==39 || posY == 41)
-	{
-	StopDMASound();
-	stateID = 5;
+		if(posX==39 || posY == 41)
+		{
+			StopDMASound();
+			stateID = 5;
+		}
+		swapBuffers();
 	}
-	break;
-	
-	case 3:
+	//Tutorial
+	while(stateID == 3)
+	{
 		PlaySoundDMA(2);
 		drawImage(120, 80, 0, 0, Catechrismus_Map, 0);
 		if(P.y<   34){ P.y=   34;}
 		buttons();
 		updatePlayer();
-	if (D.demon >= 0 && D.demon <= 2) {
-		apple(demonPositionsX[D.demon], demonPositionsY[D.demon]);
+		if (D.demon >= 0 && D.demon <= 2) {
+			apple(demonPositionsX[D.demon], demonPositionsY[D.demon]);
+		}
+		if(D.demon>=3){drawImage(120, 17, 0, 14, CastOut_Map, 0);}
+		if (D.demon >= 3 && D.demon <= 6) {
+			tutDemon(demonPositionsX[D.demon], demonPositionsY[D.demon]);
+		}
+		if(D.demon==6){stateID=1; D.demon=0;}
+	T.select=0;
+	swapBuffers();
 	}
-   if(D.demon>=3){drawImage(120, 17, 0, 14, CastOut_Map, 0);}
-	if (D.demon >= 3 && D.demon <= 6) {
-		tutDemon(demonPositionsX[D.demon], demonPositionsY[D.demon]);
-	}
-   if(D.demon==6){stateID=1; D.demon=0;}
-   T.select=0;
-   break;
-   
-   case 4:
-   //mortis
+	while(stateID == 4)
+	{
 		PlaySoundDMA(1);
 		drawImage(120,80, 0,0, Mortis_Map, 0);
-		if(KEY_ST){stateID=1;} 
-	break;
-	
-	case 5:
+		if(KEY_ST){stateID=1;}
+		swapBuffers();
+	}
 	//end of demo
-	PlaySoundDMA(7);
-	drawImage(120,80, 0,0, Ending_Map, 0);
-	break;
+	while(stateID == 5)
+	{
+		PlaySoundDMA(7);
+		drawImage(120,80, 0,0, Ending_Map, 0);
+		swapBuffers();
+	}
+  }
 }
 
-   
-   //swap buffers---------------------------------------------------------------
-   while(*Scanline<120){}	                         //wait all scanlines 
-   if  ( DISPCNT&BACKB){ DISPCNT &= ~BACKB; VRAM=(u16*)VRAM_B;}      //back  buffer
-   else{                 DISPCNT |=  BACKB; VRAM=(u16*)VRAM_F;}      //front buffer  
-  }
- }
 
 
